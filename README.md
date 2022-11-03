@@ -13,10 +13,6 @@ Assim, o nosso projeto trata-se de um jogo, tendo como base de jogabilidade do f
 - [José Nogueira](https://github.com/JoseNogueira13)
 - [Pedro Teixeira](https://github.com/40210465)
 
-### Live Demo
-
-- [Live Demo](https://github.com/40210465/PROJETO-01-Eco-Escolas-CPG)
-
 ## School Information
 
 - [ESMAD](https://www.esmad.ipp.pt/)
