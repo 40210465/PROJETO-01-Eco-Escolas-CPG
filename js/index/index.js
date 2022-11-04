@@ -3,7 +3,6 @@ const spans = document.querySelectorAll(".letter");
 spans.forEach((span, idx) => {
   span.addEventListener("click", (e) => {
     e.target.classList.add("active");
-    console.log("ola");
   });
   span.addEventListener("animationend", (e) => {
     e.target.classList.remove("active");
