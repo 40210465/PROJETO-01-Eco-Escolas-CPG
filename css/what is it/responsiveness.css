@@ -1,0 +1,90 @@
+@media (max-width: 1500px) {
+  .what-is-it-content > .description {
+    margin: 0 100px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .what-is-it-content > .description {
+    margin: 0 50px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .what-is-it-section {
+    min-height: 700px;
+  }
+  .what-is-it-content > h2 {
+    margin-bottom: 70px;
+  }
+
+  .what-is-it-content > .description > img {
+    display: none;
+    margin: 0;
+  }
+
+  .what-is-it-content > .description > p {
+    font-size: 2.2em;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 950px) {
+  .what-is-it-content > h2 {
+    margin-bottom: 50px;
+  }
+
+  .what-is-it-content > .description {
+    flex-direction: column;
+    margin: 0 50px;
+  }
+
+  .what-is-it-content > .description > p {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 600px) {
+  .what-is-it-content > .description {
+    width: 90%;
+  }
+
+  .what-is-it-content > .description > p {
+    font-size: 1.8em;
+  }
+}
+
+@media (max-width: 450px) {
+  .what-is-it-content > h2 {
+    font-size: 2.5em;
+  }
+
+  .what-is-it-content > .description {
+    width: 95%;
+  }
+
+  .what-is-it-content > .description > p {
+    font-size: 1.6em;
+  }
+}
+
+@media (max-width: 365px) {
+  .what-is-it-content > h2 {
+    font-size: 2em;
+  }
+
+  .what-is-it-content > .description > p {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 345px) {
+  .what-is-it-content > h2 {
+    font-size: 1.8em;
+  }
+
+  .what-is-it-content > .description > p {
+    font-size: 1.4em;
+  }
+}

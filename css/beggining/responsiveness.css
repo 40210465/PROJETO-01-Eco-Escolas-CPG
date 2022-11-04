@@ -11,6 +11,12 @@
   }
 }
 
+@media (max-width: 1050px) {
+  .leaderBoard-link {
+    font-size: 1.1em;
+  }
+}
+
 @media (max-width: 995px) {
   .word > span {
     font-size: 60px;
@@ -18,9 +24,8 @@
   .beginning-content > h3 {
     font-size: 25px;
   }
-
-  .play-btns > button {
-    font-size: 20px;
+  .leaderBoard-link {
+    font-size: 0.9em;
   }
 }
 
@@ -38,7 +43,13 @@
   }
 
   .play-btns > button {
-    font-size: 18px;
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 806px) {
+  .leaderBoard-link {
+    font-size: 0.7em;
   }
 }
 
@@ -46,11 +57,19 @@
   .word > span {
     font-size: 40px;
   }
+
+  .leaderBoard-link {
+    font-size: 0.65em;
+  }
 }
 
 @media (max-width: 670px) {
   .word > span {
     font-size: 30px;
+  }
+
+  .beginning-content {
+    width: 90%;
   }
 
   .play-btns {
@@ -61,7 +80,7 @@
   }
   .play-btns > button {
     margin: 0.5em 0;
-    width: 100%;
+    width: 80%;
   }
 
   .dot {
@@ -73,6 +92,10 @@
 @media (max-width: 500px) {
   .link-btns {
     font-size: 10px;
+  }
+
+  .leaderBoard-link > i {
+    margin: 0;
   }
 }
 

@@ -1,0 +1,86 @@
+@media (max-width: 1500px) {
+  .made-by-content > .description {
+    width: 80%;
+  }
+
+  .made-by-content > .description > p {
+    width: 100%;
+  }
+
+  .github-rep {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 1400px) {
+  .github-rep {
+    margin-top: -80px;
+    min-width: 450px;
+  }
+}
+
+@media (max-width: 1130px) {
+  .made-by-content > .description > p {
+    margin-top: 50px;
+    margin-bottom: -30px;
+  }
+
+  .github-rep {
+    margin-top: -50px;
+  }
+}
+
+@media (max-width: 730px) {
+  .members {
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+
+  .github-rep {
+    margin-top: -65px;
+    width: 90%;
+    min-width: 0;
+  }
+
+  .member > p > span {
+    display: none;
+  }
+
+  .member {
+    height: 80px;
+    width: 82%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .member > p {
+    margin-top: -20px;
+  }
+
+  .made-by-content > .description > p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 430px) {
+  .made-by-content > .description > p {
+    margin-top: 30px;
+  }
+
+  .github-rep {
+    margin-top: -80px;
+  }
+}
+
+@media (max-width: 330px) {
+  .made-by-content > .description > p {
+    margin-top: 20px;
+  }
+
+  .github-rep {
+    margin-top: -90px;
+  }
+}
