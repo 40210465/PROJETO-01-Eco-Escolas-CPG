@@ -8,29 +8,75 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>Junk King</title>
+
     <!-- CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+
+    <!-- Beginning Section -->
     <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/beggining/index.css" />
+    <link rel="stylesheet" href="./css/beggining/title-animation.css" />
+    <link rel="stylesheet" href="./css/beggining/responsiveness.css" />
+
+    <!-- What is it Section -->
+    <link rel="stylesheet" href="./css/what is it/index.css" />
 
     <!-- JS -->
-    <script type="module" src="js/game.js" defer></script>
+    <script src="./js/index.js" defer></script>
   </head>
   <body>
-    <section class="score-section">
-      <h1>HighScore: <span id="high-score">?</span></h1>
-      <h1>Score: <span id="score">?</span></h1>
-      <h1>Lives: <span id="lives">?</span></h1>
-    </section>
-    <section class="game-section">
-      <canvas id="game-canvas" width="400" height="650">
-        This browser doesn't support Junk King Game :(
-      </canvas>
-
-      <div class="btns">
-        <button id="left-btn" class="game-direction-btn">Left</button>
-        <button id="right-btn" class="game-direction-btn">Right</button>
+    <div class="link-btns">
+      <a href="#what-is-it">O que é?</a>
+      <a href="#how-to-play">Como se joga?</a>
+      <a href="#who-made-it">Quem o fez?</a>
+    </div>
+    <section id="beginning" class="beginning-section">
+      <div class="beginning-content">
+        <div class="word">
+          <span class="letter">J</span>
+          <span class="letter">U</span>
+          <span class="letter">N</span>
+          <span class="letter">K</span>
+          <span class="dot">
+            <i class="fa-sharp fa-solid fa-recycle"></i>
+          </span>
+          <span class="letter">K</span>
+          <span class="letter">I</span>
+          <span class="letter">N</span>
+          <span class="letter">G</span>
+        </div>
+        <h3>Começa a jogar agora!</h3>
+        <div class="play-btns">
+          <button id="amateur">Fácil</button>
+          <button id="veteran">Normal</button>
+          <button id="impossible">Impossível</button>
+        </div>
+        <br />
+        <a href="#" class="leaderBoard-link">Tabela de Pontuação</a>
       </div>
-
-      <button class="start-button" id="start-button">Start</button>
+    </section>
+    <section id="what-is-it" class="what-is-it-section">
+      <div class="what-is-it-content">
+        <h2>O que é?</h2>
+        <div class="description">
+          <p>
+            O nosso projeto é de âmbito educativo, tendo como público-alvo
+            infantil e juvenil, sendo a sua faixa etária entre os 6 e os 16
+            anos, com o objetivo de sensibilizar para a reciclagem. Assim,
+            o nosso projeto trata-se de um jogo, tendo como base de
+            jogabilidade do famoso jogo “Tetris”. Deste modo, um pedaço de
+            lixo aleatório (pilhas, papeis, …) irá cair aleatoriamente
+            surgindo do topo do canvas, para a base, onde irão estar os
+            respetivos ecopontos. Quanto ao jogador, terá de utilizar as
+            setas do teclado para direcionar o pedaço de lixo, para o
+            contentor correspondente.
+          </p>
+          <img src="./assets/ecoponto.png" alt="ecoponto" loading="lazy" />
+        </div>
+      </div>
     </section>
   </body>
 </html>
