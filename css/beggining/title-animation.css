@@ -28,9 +28,13 @@
 .letter:nth-child(6).active {
   animation: rotate 1s ease-out;
 }
-.letter:nth-child(4).active,
-.letter:nth-child(9).active {
+.letter:nth-child(4).active {
   animation: toplong 1.5s linear;
+}
+
+.letter:nth-child(9).active {
+  animation: balanceOpposite 1.5s ease-out;
+  transform-origin: bottom left;
 }
 
 @keyframes balance {
@@ -42,6 +46,18 @@
   30%,
   60% {
     transform: rotate(-45deg);
+  }
+}
+
+@keyframes balanceOpposite {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  30%,
+  60% {
+    transform: rotate(45deg);
   }
 }
 
