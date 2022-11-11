@@ -30,20 +30,21 @@
     <link rel="stylesheet" href="./css/made by/responsiveness.css" />
 
     <!-- JS -->
-    <script src="./js/index/index.js" defer></script>
+    <script src="./js/index/title-animation.js" defer></script>
     <script src="./js/index/scroll.js" defer></script>
+    <script src="./js/index/index.js" defer></script>
   </head>
-  <body>
+  <body scroll="no" style="overflow: hidden">
     <div class="link-btns active">
+      <a href="#how-to-play" class="special">Aprende a jogar!</a>
       <a href="#what-is-it">O que é?</a>
-      <a href="#how-to-play">Como se joga?</a>
       <a href="#made-by">Quem o fez?</a>
     </div>
-    <a href="#beginning" class="go-up-arrow hidden"
+    <a href="#" class="go-up-arrow hidden"
       ><i class="fas fa-chevron-up"></i
     ></a>
 
-    <section id="beginning" class="beginning-section">
+    <section class="beginning-section">
       <div class="beginning-content">
         <div class="word">
           <span class="letter">J</span>
@@ -61,8 +62,8 @@
         <div class="content">
           <h3>Começa a jogar agora!</h3>
           <div class="play-btns">
-            <button value="amateur">Fácil</button>
-            <button value="veteran">Normal</button>
+            <button value="easy">Fácil</button>
+            <button value="normal">Normal</button>
             <button value="impossible">Impossível</button>
           </div>
           <br />

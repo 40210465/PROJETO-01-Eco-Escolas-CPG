@@ -28,6 +28,16 @@ body {
   font-size: 1.7em;
 }
 
+.link-btns > .special {
+  animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+  50% {
+    color: #a7befb;
+  }
+}
+
 .go-up-arrow {
   position: fixed;
   bottom: 0;
