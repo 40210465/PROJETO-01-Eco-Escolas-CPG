@@ -56,4 +56,19 @@ a:hover {
   background-color: rgba(49, 49, 49, 0.5);
   border-radius: 15px;
   padding: 1em;
+  animation: border 1s infinite;
+}
+
+@keyframes border {
+  0% {
+    border: 1px solid #fff;
+  }
+
+  50% {
+    border: 1px solid #a7befb;
+  }
+
+  100% {
+    border: 1px solid #fff;
+  }
 }
