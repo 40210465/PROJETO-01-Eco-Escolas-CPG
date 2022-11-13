@@ -33,14 +33,17 @@
     <script src="./js/index/title-animation.js" defer></script>
     <script src="./js/index/scroll.js" defer></script>
     <script src="./js/index/index.js" defer></script>
+    <script src="./js/index/who made it/animation.js" defer></script>
   </head>
   <body scroll="no" style="overflow: hidden">
     <div class="link-btns active">
-      <a href="#how-to-play" class="special">Aprende a jogar</a>
-      <a href="#what-is-it">O que é</a>
-      <a href="#made-by">Quem o fez</a>
+      <a href="#how-to-play" class="special" id="learn-play-link"
+        >Aprende a jogar</a
+      >
+      <a href="#what-is-it" id="what-is-link">O que é</a>
+      <a href="#made-by" id="made-by-link">Quem o fez</a>
     </div>
-    <a href="#" class="go-up-arrow hidden"
+    <a href="#" class="go-up-arrow hidden" id="go-up-arrow"
       ><i class="fas fa-chevron-up"></i
     ></a>
 
@@ -79,7 +82,7 @@
       <div class="what-is-it-content">
         <h2>O que é?</h2>
         <div class="description">
-          <p>
+          <p id="what-is-description">
             O nosso projeto é de âmbito educativo, tendo como público-alvo
             infantil e juvenil, sendo a sua faixa etária entre os 6 e os 16
             anos, com o objetivo de sensibilizar para a reciclagem. Assim,
@@ -91,7 +94,12 @@
             setas do teclado para direcionar o pedaço de lixo, para o
             contentor correspondente.
           </p>
-          <img src="./assets/ecoponto.png" alt="ecoponto" loading="lazy" />
+          <img
+            src="./assets/ecoponto.png"
+            alt="ecoponto"
+            loading="lazy"
+            id="what-is-img"
+          />
         </div>
       </div>
     </section>
@@ -99,7 +107,7 @@
       <div class="made-by-content">
         <h2>Quem o fez?</h2>
         <div class="description">
-          <p>
+          <p id="made-by-description">
             O nosso projeto foi desenvolvido por 3 alunos do 2º ano do
             curso de Tecnologias de Sistemas e Informação para a web, no
             Instituto Politécnico do Porto, no âmbito da disciplina de

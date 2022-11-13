@@ -144,3 +144,18 @@
   scale: 1.03;
   transition: 0.5s;
 }
+
+.show-up {
+  animation: show-up 1.5s ease-in-out;
+}
+
+@keyframes show-up {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
