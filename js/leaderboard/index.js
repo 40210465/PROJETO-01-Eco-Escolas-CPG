@@ -148,12 +148,19 @@ function loadLeaderBoard() {
     const score = scoresToDisplay[i];
     const scorePosition = page * scoresPerPage + i + 1;
     document.querySelector("tbody").innerHTML += `
-    <tr>
+    <tr class="animate">
       <td>${scorePosition}</td>
       <td>${score.name}</td>
       <td>${score.score}</td>
     </tr>`;
   }
+
+  setTimeout(() => {
+    const animate = document.querySelectorAll(".animate");
+    animate.forEach((element) => {
+      element.classList.remove("animate");
+    });
+  }, 500);
 
   if (page === 0) {
     updatePrevBtn("disable");
