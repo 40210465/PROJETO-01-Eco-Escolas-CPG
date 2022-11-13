@@ -1,15 +1,20 @@
 const spans = document.querySelectorAll(".letter");
 
-spans.forEach((span, idx) => {
-  span.addEventListener("click", (e) => {
-    e.target.classList.add("active");
-  });
-  span.addEventListener("animationend", (e) => {
-    e.target.classList.remove("active");
+(function animTitle() {
+  spans.forEach((span, idx) => {
+    span.addEventListener("click", (e) => {});
+    span.addEventListener("animationend", (e) => {
+      e.target.classList.remove("active");
+    });
+
+    // Initial animation
+    setTimeout(() => {
+      span.classList.add("active");
+    }, 550 * (idx + 1));
   });
 
-  // Initial animation
+  // animate from the beginning again
   setTimeout(() => {
-    span.classList.add("active");
-  }, 750 * (idx + 1));
-});
+    animTitle();
+  }, 550 * (spans.length + 1));
+})();

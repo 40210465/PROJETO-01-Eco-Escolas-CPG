@@ -1,4 +1,5 @@
-localStorage.scores = JSON.stringify([
+//TODO: Remove after testing
+/* localStorage.scores = JSON.stringify([
   {
     name: "Player 1",
     score: 100,
@@ -88,10 +89,31 @@ localStorage.scores = JSON.stringify([
     name: "Player 22",
     score: 2200,
   },
-]);
+]); */
 
+const playAudio = new Audio("../../assets/sounds/play button.mp3");
 let page = 0;
 let scoresPerPage = 5;
+
+function updateNextBtn(value) {
+  if (value === "enable") {
+    document.querySelector("#next-page").classList.remove("disabled");
+    document.querySelector("#next-page").disabled = false;
+  } else {
+    document.querySelector("#next-page").classList.add("disabled");
+    document.querySelector("#next-page").disabled = true;
+  }
+}
+
+function updatePrevBtn(value) {
+  if (value === "enable") {
+    document.querySelector("#previous-page").classList.remove("disabled");
+    document.querySelector("#previous-page").disabled = false;
+  } else {
+    document.querySelector("#previous-page").classList.add("disabled");
+    document.querySelector("#previous-page").disabled = true;
+  }
+}
 
 function loadLeaderBoard() {
   const scores = localStorage.scores
@@ -103,8 +125,12 @@ function loadLeaderBoard() {
     <tr>
       <td colspan='3' rowspan='2'
         style='text-align: center; font-size: 1.5rem;'
-      >No scores yet</td>
+      >Nenhuma pontuação registada</td>
     </tr>`;
+
+    updateNextBtn("disable");
+    updatePrevBtn("disable");
+
     return;
   }
 
@@ -130,31 +156,28 @@ function loadLeaderBoard() {
   }
 
   if (page === 0) {
-    document.querySelector("#previous-page").classList.add("disabled");
-    document.querySelector("#previous-page").disabled = true;
+    updatePrevBtn("disable");
   } else {
-    document.querySelector("#previous-page").classList.remove("disabled");
-    document.querySelector("#previous-page").disabled = false;
+    updatePrevBtn("enable");
   }
 
   if (scoresToDisplay.length < scoresPerPage) {
-    document.querySelector("#next-page").classList.add("disabled");
-    // disable the button
-    document.querySelector("#next-page").disabled = true;
+    updateNextBtn("disable");
   } else {
-    document.querySelector("#next-page").classList.remove("disabled");
-    document.querySelector("#next-page").disabled = false;
+    updateNextBtn("enable");
   }
 }
 
 document.querySelector("#next-page").addEventListener("click", () => {
+  playAudio.play();
   page++;
   loadLeaderBoard();
 });
 
 document.querySelector("#previous-page").addEventListener("click", () => {
+  playAudio.play();
   page--;
   loadLeaderBoard();
 });
 
-window.onload = loadLeaderBoard;
+window.onload = loadLeaderBoard();
