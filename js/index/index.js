@@ -16,4 +16,24 @@ playBtns.forEach((btn) => {
       else window.location.href = "../../html/game.html";
     }, 150);
   });
+
+  if (btn.value === "easy") {
+    btn.addEventListener("mouseover", () => {
+      document.querySelector(".content").classList.add("move-left");
+    });
+  } else if (btn.value === "impossible") {
+    btn.addEventListener("mouseover", () => {
+      document.querySelector(".content").classList.add("move-right");
+    });
+  } else {
+    btn.addEventListener("mouseover", () => {
+      document.querySelector(".content").classList.add("bigger");
+    });
+  }
+
+  btn.addEventListener("mouseout", () => {
+    document.querySelector(".content").classList.remove("move-left");
+    document.querySelector(".content").classList.remove("move-right");
+    document.querySelector(".content").classList.remove("bigger");
+  });
 });
