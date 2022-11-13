@@ -92,8 +92,12 @@ tr {
   background-color: #1673fd;
 }
 
-.animate {
-  animation: slide 0.5s ease-in-out;
+.animate-from-left {
+  animation: slideFromLeft 0.5s ease-in-out;
+}
+
+.animate-from-right {
+  animation: slideFromRight 0.5s ease-in-out;
 }
 
 td:first-child {
@@ -193,9 +197,18 @@ tr:hover {
 }
 
 /* slide animation */
-@keyframes slide {
+@keyframes slideFromLeft {
   0% {
     transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromRight {
+  0% {
+    transform: translateX(100%);
   }
   100% {
     transform: translateX(0);

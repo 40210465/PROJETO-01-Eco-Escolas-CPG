@@ -1,96 +1,3 @@
-//TODO: Remove after testing
-/* localStorage.scores = JSON.stringify([
-  {
-    name: "Player 1",
-    score: 100,
-  },
-  {
-    name: "Player 2",
-    score: 200,
-  },
-  {
-    name: "Player 3",
-    score: 300,
-  },
-  {
-    name: "Player 4",
-    score: 400,
-  },
-  {
-    name: "Player 5",
-    score: 500,
-  },
-  {
-    name: "Player 6",
-    score: 600,
-  },
-  {
-    name: "Player 7",
-    score: 700,
-  },
-  {
-    name: "Player 8",
-    score: 800,
-  },
-  {
-    name: "Player 9",
-    score: 900,
-  },
-  {
-    name: "Player 10",
-    score: 1000,
-  },
-  {
-    name: "Player 11",
-    score: 1100,
-  },
-  {
-    name: "Player 12",
-    score: 1200,
-  },
-  {
-    name: "Player 13",
-    score: 1300,
-  },
-  {
-    name: "Player 14",
-    score: 1400,
-  },
-  {
-    name: "Player 15",
-    score: 1500,
-  },
-  {
-    name: "Player 16",
-    score: 1600,
-  },
-  {
-    name: "Player 17",
-    score: 1700,
-  },
-  {
-    name: "Player 18",
-    score: 1800,
-  },
-
-  {
-    name: "Player 19",
-    score: 1900,
-  },
-  {
-    name: "Player 20",
-    score: 2000,
-  },
-  {
-    name: "Player 21",
-    score: 2100,
-  },
-  {
-    name: "Player 22",
-    score: 2200,
-  },
-]); */
-
 const playAudio = new Audio("../../assets/sounds/play button.mp3");
 let page = 0;
 let scoresPerPage = 5;
@@ -115,7 +22,7 @@ function updatePrevBtn(value) {
   }
 }
 
-function loadLeaderBoard() {
+function loadLeaderBoard(direction) {
   const scores = localStorage.scores
     ? JSON.parse(localStorage.scores)
     : [];
@@ -148,7 +55,7 @@ function loadLeaderBoard() {
     const score = scoresToDisplay[i];
     const scorePosition = page * scoresPerPage + i + 1;
     document.querySelector("tbody").innerHTML += `
-    <tr class="animate">
+    <tr class="${direction}">
       <td>${scorePosition}</td>
       <td>${score.name}</td>
       <td>${score.score}</td>
@@ -156,9 +63,9 @@ function loadLeaderBoard() {
   }
 
   setTimeout(() => {
-    const animate = document.querySelectorAll(".animate");
+    const animate = document.querySelectorAll(`.${direction}`);
     animate.forEach((element) => {
-      element.classList.remove("animate");
+      element.classList.remove(`${direction}`);
     });
   }, 500);
 
@@ -178,13 +85,13 @@ function loadLeaderBoard() {
 document.querySelector("#next-page").addEventListener("click", () => {
   playAudio.play();
   page++;
-  loadLeaderBoard();
+  loadLeaderBoard("animate-from-right");
 });
 
 document.querySelector("#previous-page").addEventListener("click", () => {
   playAudio.play();
   page--;
-  loadLeaderBoard();
+  loadLeaderBoard("animate-from-left");
 });
 
-window.onload = loadLeaderBoard();
+window.onload = loadLeaderBoard("animate-from-left");
