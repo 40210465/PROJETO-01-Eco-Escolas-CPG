@@ -55,7 +55,7 @@ function loadLeaderBoard(direction) {
     const score = scoresToDisplay[i];
     const scorePosition = page * scoresPerPage + i + 1;
     document.querySelector("tbody").innerHTML += `
-    <tr class="${direction}">
+    <tr class="${direction} table-data">
       <td>${scorePosition}</td>
       <td>${score.name}</td>
       <td>${score.score}</td>

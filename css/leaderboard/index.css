@@ -112,7 +112,7 @@ td:nth-child(3) {
   width: 30%;
 }
 
-tr:hover {
+.table-data:hover {
   background-color: #4d90f5;
   transform: scale(1.1);
   transition: 0.3s;
