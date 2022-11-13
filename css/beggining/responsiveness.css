@@ -64,6 +64,10 @@
 }
 
 @media (max-width: 670px) {
+  .word {
+    margin-top: -50px;
+  }
+
   .beginning-content {
     width: 90%;
   }

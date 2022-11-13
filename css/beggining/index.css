@@ -69,17 +69,20 @@ a:hover {
 .move-right {
   transform: scale(1.1) rotate(5deg) skew(5deg) translate(5px, 5px)
     translateZ(5px) translateX(5px) translateY(5px);
+  box-shadow: 0 0 10px #000;
   transition: 0.5s;
 }
 
 .move-left {
   transform: scale(1.1) rotate(-5deg) skew(-5deg) translate(-5px, -5px)
     translateZ(-5px) translateX(-5px) translateY(-5px);
+  box-shadow: 0 0 10px #000;
   transition: 0.5s;
 }
 
 .bigger {
   transform: scale(1.1);
+  box-shadow: 0 0 10px #000;
   transition: 0.5s;
 }
 

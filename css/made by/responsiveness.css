@@ -32,6 +32,10 @@
 }
 
 @media (max-width: 730px) {
+  .made-by-content > h2 {
+    margin-top: -200px;
+  }
+
   .members {
     flex-direction: column;
     margin-bottom: 0;
@@ -61,7 +65,7 @@
   }
 
   .made-by-content > .description > p {
-    font-size: 15px;
+    font-size: 17px;
   }
 }
 
