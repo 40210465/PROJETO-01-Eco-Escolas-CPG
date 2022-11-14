@@ -25,7 +25,8 @@
 
   .what-is-it-content > .description > p {
     font-size: 2.2em;
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
     text-align: center;
   }
 }
@@ -42,6 +43,7 @@
 
   .what-is-it-content > .description > p {
     font-size: 2em;
+    padding: 20px;
   }
 }
 

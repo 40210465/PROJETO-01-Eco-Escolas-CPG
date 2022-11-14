@@ -36,9 +36,13 @@
 
 .made-by-content > .description > p {
   font-weight: 100;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   margin-top: 80px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  padding: 20px;
+  margin-left: -20px;
 }
 
 .members {
@@ -48,6 +52,7 @@
   align-items: center;
   height: 100%;
   margin-bottom: -40px;
+  margin-top: -40px;
 }
 
 .member {
