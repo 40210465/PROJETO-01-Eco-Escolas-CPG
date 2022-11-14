@@ -90,3 +90,15 @@
     font-size: 1.4em;
   }
 }
+
+@media (max-height: 800px) {
+  .what-is-it-content > .description {
+    margin-top: -70px;
+  }
+}
+
+@media (max-height: 700px) {
+  .what-is-it-content > .description {
+    margin-top: -50px;
+  }
+}
