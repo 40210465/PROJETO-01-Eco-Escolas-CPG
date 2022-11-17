@@ -92,6 +92,9 @@ function renderEasy() {
   if (junk.position.y >= H - containerHeight / 1.5) {
     for (let i = 0; i < containers.length; i++) {
       if (junk.position.x === junkHorizontalPositions[i]) {
+        // play the sound
+        entrySound.play();
+
         if (junk.type === containers[i].type) {
           console.log("Correct!");
 
@@ -179,6 +182,9 @@ function renderNormal() {
   if (junk.position.y >= H - containerHeight / 1.5) {
     for (let i = 0; i < containers.length; i++) {
       if (junk.position.x === junkHorizontalPositions[i]) {
+        // play the sound
+        entrySound.play();
+
         if (junk.type === containers[i].type) {
           console.log("Correct!");
 
@@ -268,20 +274,21 @@ function renderImpossible() {
 
   if (currentFrame > 0) {
     currentFrame--;
-    const randomContainers = containers;
   } else {
     // sort the containers randomly
-    const randomContainers = containers.sort(() => Math.random() - 0.5);
+    containers.sort(() => Math.random() - 0.5);
     currentFrame = intervalFrames;
   }
 
   if (junk.position.y >= H - containerHeight / 1.5) {
     for (let i = 0; i < containers.length; i++) {
       if (junk.position.x === junkHorizontalPositions[i]) {
+        // play the sound
+        entrySound.play();
+
         if (junk.type === containers[i].type) {
           console.log("Correct!");
 
-          // TODO
           frame = [0, 0, 0, 0];
 
           containers[i].increaseQuantity();
@@ -374,8 +381,10 @@ const W = canvas.width;
 const H = canvas.height;
 const currentDifficulty = localStorage.difficulty || "easy";
 
+// Assets
 const backGroundImg = new Image();
 backGroundImg.src = "../../assets/bg.jpg";
+const entrySound = new Audio("../../assets/sounds/entry.mp3");
 
 let hasGameStarted = false;
 let player;
