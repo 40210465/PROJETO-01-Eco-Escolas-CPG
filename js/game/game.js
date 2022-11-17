@@ -73,8 +73,8 @@ function moveJunk(key) {
 }
 
 function renderEasy() {
-  ctx.fillStyle = "cyan";
-  ctx.fillRect(0, 0, W, H);
+  // draw the background
+  ctx.drawImage(backGroundImg, 0, 0, W, H);
 
   // check if there's already a junk falling down
   if (!junk) junk = getNewJunk();
@@ -161,8 +161,8 @@ function renderEasy() {
 }
 
 function renderNormal() {
-  ctx.fillStyle = "cyan";
-  ctx.fillRect(0, 0, W, H);
+  // draw the background
+  ctx.drawImage(backGroundImg, 0, 0, W, H);
 
   // check if there's already a junk falling down
   if (!junk) junk = getNewJunk();
@@ -186,6 +186,106 @@ function renderNormal() {
 
           containers[i].increaseQuantity();
           currentSpeed += 0.05;
+
+          // update the score
+          player.updateScore();
+          if (player.score > player.highScore) player.updateHighScore();
+        } else {
+          console.log("Incorrect!");
+          /* currentSpeed = 1; */
+          player.decreaseLives();
+        }
+
+        // update the DOM
+        updateScoreDOM();
+
+        // check if the player lost
+        if (player.checkIfLost()) {
+          player.saveHighScore();
+          return endGame();
+        }
+
+        junk = false;
+        break;
+      }
+    }
+  } else {
+    // move the junk
+    junk.moveY();
+  }
+
+  // draw the containers
+  for (let i = 0; i < containers.length; i++) {
+    // check if the junk is above the container
+    if (junk) {
+      if (junk.position.x === junkHorizontalPositions[i]) {
+        // if it's close to the container
+        if (junk.position.y >= H - containerHeight / 1.5 - 200) {
+          console.log(
+            "The junk is close to the container - Opening the container..."
+          );
+          frame[i] =
+            frame[i] < maxFrame / 2 - 1
+              ? frame[i] + 0.5
+              : maxFrame / 2 - 1;
+        }
+      } else {
+        frame[i] = 0;
+      }
+    }
+
+    ctx.drawImage(
+      containers[i].image,
+      0 + 230 * frame[i],
+      0,
+      210,
+      400,
+      containerGap + i * (containerWidth + containerGap),
+      H - containerHeight,
+      90,
+      150
+    );
+  }
+
+  window.requestAnimationFrame(renderNormal);
+}
+
+function renderImpossible() {
+  // draw the background
+  ctx.drawImage(backGroundImg, 0, 0, W, H);
+
+  // check if there's already a junk falling down
+  if (!junk) junk = getNewJunk();
+
+  // render the junk image
+  ctx.drawImage(
+    junk.image,
+    junk.position.x,
+    junk.position.y,
+    junkWidth,
+    junkHeight
+  );
+
+  if (currentFrame > 0) {
+    currentFrame--;
+    const randomContainers = containers;
+  } else {
+    // sort the containers randomly
+    const randomContainers = containers.sort(() => Math.random() - 0.5);
+    currentFrame = intervalFrames;
+  }
+
+  if (junk.position.y >= H - containerHeight / 1.5) {
+    for (let i = 0; i < containers.length; i++) {
+      if (junk.position.x === junkHorizontalPositions[i]) {
+        if (junk.type === containers[i].type) {
+          console.log("Correct!");
+
+          // TODO
+          frame = [0, 0, 0, 0];
+
+          containers[i].increaseQuantity();
+          currentSpeed += 0.07;
 
           // update the score
           player.updateScore();
@@ -247,7 +347,7 @@ function renderNormal() {
     );
   }
 
-  window.requestAnimationFrame(renderNormal);
+  window.requestAnimationFrame(renderImpossible);
 }
 
 function endGame() {
@@ -274,6 +374,9 @@ const W = canvas.width;
 const H = canvas.height;
 const currentDifficulty = localStorage.difficulty || "easy";
 
+const backGroundImg = new Image();
+backGroundImg.src = "../../assets/bg.jpg";
+
 let hasGameStarted = false;
 let player;
 let containers;
@@ -283,10 +386,16 @@ const keys = ["ArrowLeft", "ArrowRight"];
 let frame = [0, 0, 0, 0];
 const maxFrame = 6; // number of frames that the container image has
 
+// impossible difficulty variables
+const intervalFrames = 150;
+let currentFrame = intervalFrames;
+
+// container measurements
 const containerWidth = 80;
 const containerHeight = 120;
 const containerGap = 14;
 
+// junk measurements
 const junkWidth = 70;
 const junkHeight = 70;
 const typesOfJunk = [
@@ -296,6 +405,7 @@ const typesOfJunk = [
   { color: "yellow", type: "plastic" },
 ];
 
+// junk horizontal positions
 const junkHorizontalPositions = [
   containerGap + containerWidth / 2 - junkWidth / 2 + 4,
   containerGap * 2 + containerWidth * 1.5 - junkWidth / 2 + 4,
@@ -303,10 +413,11 @@ const junkHorizontalPositions = [
   containerGap * 4 + containerWidth * 3.5 - junkWidth / 2 + 4,
 ];
 
+// Difficulty render functions
 const difficulties = {
   easy: renderEasy,
   normal: renderNormal,
-  // hard: renderHard,
+  impossible: renderImpossible,
 };
 
 // DOM elements

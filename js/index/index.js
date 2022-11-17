@@ -11,9 +11,7 @@ playBtns.forEach((btn) => {
 
     // Wait a little so the audio may play
     setTimeout(() => {
-      if (e.target.value === "impossible")
-        window.location.href = "../../html/impossible.html";
-      else window.location.href = "../../html/game.html";
+      window.location.href = "../../html/game.html";
     }, 150);
   });
 
