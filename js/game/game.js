@@ -2,6 +2,7 @@
 import { Container } from "./modules/Container.js";
 import { Junk } from "./modules/Junk.js";
 import { Player } from "./modules/Player.js";
+import { submitScore } from "./submitScore.js";
 
 function startGame() {
   hasGameStarted = true;
@@ -373,6 +374,13 @@ function endGame() {
     plastic: containers[3].quantity,
   };
   console.log(result);
+
+  // update score modal
+  scoreModal.innerText = player.highScore;
+  document.querySelector("#name").value = playerName;
+
+  // show modal
+  document.querySelector("#modal").classList.add("show-modal");
 }
 
 const canvas = document.querySelector("#game-canvas");
@@ -388,6 +396,7 @@ const entrySound = new Audio("../../assets/sounds/entry.mp3");
 
 let hasGameStarted = false;
 let player;
+let playerName = localStorage.playerName || "";
 let containers;
 let junk;
 let currentSpeed;
@@ -436,6 +445,10 @@ const rightBtn = document.querySelector("#right-btn");
 const score = document.querySelector("#score");
 const highScore = document.querySelector("#high-score");
 const lives = document.querySelector("#lives");
+const modal = document.querySelector("#modal");
+const scoreModal = document.querySelector("#modal-score");
+const closeModal = document.querySelector("#close");
+const submitForm = document.querySelector("#submit-score");
 
 startBtn.onclick = () => {
   startGame();
@@ -457,8 +470,22 @@ rightBtn.onclick = () => {
   if (hasGameStarted) moveJunk("ArrowRight");
 };
 
+submitForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  document.querySelector("#message").innerText = submitScore(
+    currentDifficulty,
+    document.querySelector("#name").value,
+    scoreModal
+  );
+});
+
 leftBtn.disabled = true;
 rightBtn.disabled = true;
+
+closeModal.onclick = () => {
+  modal.classList.remove("show-modal");
+};
 
 // Draw in the canvas the title of the game (Junk King)
 ctx.fillStyle = "black";

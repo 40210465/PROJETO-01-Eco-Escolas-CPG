@@ -10,7 +10,8 @@
     />
     <title>Junk King - Game</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/game.css" />
+    <link rel="stylesheet" href="../css/game/game.css" />
+    <link rel="stylesheet" href="../css/game/submitModal.css" />
 
     <!-- JS -->
     <script type="module" src="../js/game/game.js" defer></script>
@@ -33,5 +34,25 @@
 
       <button class="start-button" id="start-button">Start</button>
     </section>
+
+    <!-- submit name and score modal -->
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <!-- close button -->
+        <span class="close" id="close">&times;</span>
+        <h1>Game Over</h1>
+        <h2>Score: <span id="modal-score">?</span></h2>
+        <form id="submit-score">
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter your name..."
+            required
+          />
+          <span id="message" class="modal-message"></span>
+          <input type="submit" id="submit-btn" value="Submit" />
+        </form>
+      </div>
+    </div>
   </body>
 </html>
