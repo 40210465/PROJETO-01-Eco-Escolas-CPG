@@ -476,7 +476,7 @@ submitForm.addEventListener("submit", (e) => {
   document.querySelector("#message").innerText = submitScore(
     currentDifficulty,
     document.querySelector("#name").value,
-    scoreModal
+    scoreModal.innerText
   );
 });
 
