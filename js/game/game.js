@@ -160,6 +160,96 @@ function renderEasy() {
   window.requestAnimationFrame(renderEasy);
 }
 
+function renderNormal() {
+  ctx.fillStyle = "cyan";
+  ctx.fillRect(0, 0, W, H);
+
+  // check if there's already a junk falling down
+  if (!junk) junk = getNewJunk();
+
+  // render the junk image
+  ctx.drawImage(
+    junk.image,
+    junk.position.x,
+    junk.position.y,
+    junkWidth,
+    junkHeight
+  );
+
+  if (junk.position.y >= H - containerHeight / 1.5) {
+    for (let i = 0; i < containers.length; i++) {
+      if (junk.position.x === junkHorizontalPositions[i]) {
+        if (junk.type === containers[i].type) {
+          console.log("Correct!");
+
+          frame = [0, 0, 0, 0];
+
+          containers[i].increaseQuantity();
+          currentSpeed += 0.05;
+
+          // update the score
+          player.updateScore();
+          if (player.score > player.highScore) player.updateHighScore();
+        } else {
+          console.log("Incorrect!");
+          /* currentSpeed = 1; */
+          player.decreaseLives();
+        }
+
+        // update the DOM
+        updateScoreDOM();
+
+        // check if the player lost
+        if (player.checkIfLost()) {
+          player.saveHighScore();
+          return endGame();
+        }
+
+        junk = false;
+        break;
+      }
+    }
+  } else {
+    // move the junk
+    junk.moveY();
+  }
+
+  // draw the containers
+  for (let i = 0; i < containers.length; i++) {
+    // check if the junk is above the container
+    if (junk) {
+      if (junk.position.x === junkHorizontalPositions[i]) {
+        // if it's close to the container
+        if (junk.position.y >= H - containerHeight / 1.5 - 350) {
+          console.log(
+            "The junk is close to the container - Opening the container..."
+          );
+          frame[i] =
+            frame[i] < maxFrame / 2 - 1
+              ? frame[i] + 0.5
+              : maxFrame / 2 - 1;
+        }
+      } else {
+        frame[i] = 0;
+      }
+    }
+
+    ctx.drawImage(
+      containers[i].image,
+      0 + 230 * frame[i],
+      0,
+      210,
+      400,
+      containerGap + i * (containerWidth + containerGap),
+      H - containerHeight,
+      90,
+      150
+    );
+  }
+
+  window.requestAnimationFrame(renderNormal);
+}
+
 function endGame() {
   hasGameStarted = false;
   startBtn.disabled = false;
@@ -215,8 +305,8 @@ const junkHorizontalPositions = [
 
 const difficulties = {
   easy: renderEasy,
-  /* normal: renderNormal,
-  hard: renderHard, */
+  normal: renderNormal,
+  // hard: renderHard,
 };
 
 // DOM elements
