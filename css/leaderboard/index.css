@@ -158,6 +158,40 @@ td:nth-child(3) {
   transform: scale(1);
 }
 
+.filter {
+  margin: 0 auto;
+  margin-top: 50px;
+  text-align: center;
+  background-color: rgba(49, 49, 49, 0.5);
+  padding: 5px;
+  border-radius: 5px;
+  width: 370px;
+}
+
+.filter label {
+  font-size: 2em;
+  font-weight: bold;
+  color: #ffffff;
+  margin-right: 10px;
+}
+
+.filter select {
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 10px;
+  transition: all 0.4s;
+}
+
+.filter select:hover {
+  background-color: #1673fd;
+  color: #ffffff;
+  transform: scale(1.02);
+}
+
 /* ANIMATIONS */
 /* shake once animation */
 @keyframes shake {

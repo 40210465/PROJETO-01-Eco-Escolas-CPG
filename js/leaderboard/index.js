@@ -1,6 +1,7 @@
 const playAudio = new Audio("../../assets/sounds/play button.mp3");
 let page = 0;
 let scoresPerPage = 5;
+let currentFilter = document.querySelector("#filter").value;
 
 function updateNextBtn(value) {
   if (value === "enable") {
@@ -22,10 +23,12 @@ function updatePrevBtn(value) {
   }
 }
 
-function loadLeaderBoard(direction) {
-  const scores = localStorage.scores
-    ? JSON.parse(localStorage.scores)
-    : [];
+function loadAllScores(direction, filter) {
+  let scores = localStorage.scores ? JSON.parse(localStorage.scores) : [];
+
+  if (filter !== "all") {
+    scores = scores.filter((score) => score.difficulty === filter);
+  }
 
   if (scores.length === 0) {
     document.querySelector("tbody").innerHTML = `
@@ -85,13 +88,21 @@ function loadLeaderBoard(direction) {
 document.querySelector("#next-page").addEventListener("click", () => {
   playAudio.play();
   page++;
-  loadLeaderBoard("animate-from-right");
+  loadAllScores("animate-from-right", currentFilter);
 });
 
 document.querySelector("#previous-page").addEventListener("click", () => {
   playAudio.play();
   page--;
-  loadLeaderBoard("animate-from-left");
+  loadAllScores("animate-from-left", currentFilter);
 });
 
-window.onload = loadLeaderBoard("animate-from-left");
+// when "document.querySelector("#filter").value" changes, the "change" event is triggered
+document.querySelector("#filter").addEventListener("change", (e) => {
+  playAudio.play();
+  page = 0;
+  currentFilter = e.target.value;
+  loadAllScores("animate-from-right", currentFilter);
+});
+
+window.onload = loadAllScores("animate-from-left", currentFilter);
