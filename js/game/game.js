@@ -3,10 +3,6 @@ import { Container } from "./modules/Container.js";
 import { Junk } from "./modules/Junk.js";
 import { Player } from "./modules/Player.js";
 
-document.querySelector(
-  "title"
-).innerText = `Junk King - ${localStorage.difficulty}`;
-
 function startGame() {
   hasGameStarted = true;
   startBtn.disabled = true;
@@ -27,7 +23,7 @@ function startGame() {
 
   updateScoreDOM();
 
-  render();
+  difficulties[currentDifficulty]();
 }
 
 function updateScoreDOM() {
@@ -76,7 +72,7 @@ function moveJunk(key) {
   }
 }
 
-function render() {
+function renderEasy() {
   ctx.fillStyle = "cyan";
   ctx.fillRect(0, 0, W, H);
 
@@ -102,7 +98,7 @@ function render() {
           frame = [0, 0, 0, 0];
 
           containers[i].increaseQuantity();
-          currentSpeed += 0.1;
+          currentSpeed += 0.03;
 
           // update the score
           player.updateScore();
@@ -161,7 +157,7 @@ function render() {
     );
   }
 
-  window.requestAnimationFrame(render);
+  window.requestAnimationFrame(renderEasy);
 }
 
 function endGame() {
@@ -186,6 +182,7 @@ const canvas = document.querySelector("#game-canvas");
 const ctx = canvas.getContext("2d");
 const W = canvas.width;
 const H = canvas.height;
+const currentDifficulty = localStorage.difficulty || "easy";
 
 let hasGameStarted = false;
 let player;
@@ -215,6 +212,12 @@ const junkHorizontalPositions = [
   containerGap * 3 + containerWidth * 2.5 - junkWidth / 2 + 4,
   containerGap * 4 + containerWidth * 3.5 - junkWidth / 2 + 4,
 ];
+
+const difficulties = {
+  easy: renderEasy,
+  /* normal: renderNormal,
+  hard: renderHard, */
+};
 
 // DOM elements
 const startBtn = document.querySelector("#start-button");
