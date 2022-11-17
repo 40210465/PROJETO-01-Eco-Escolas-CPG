@@ -16,11 +16,12 @@ function startGame() {
   // Game variables
   player = new Player();
   containers = [
-    new Container("red", "battery"),
-    new Container("blue", "paper"),
-    new Container("green", "glass"),
-    new Container("yellow", "plastic"),
+    new Container("battery"),
+    new Container("paper"),
+    new Container("glass"),
+    new Container("plastic"),
   ];
+
   junk = false;
   currentSpeed = 1;
 
@@ -79,31 +80,26 @@ function render() {
   ctx.fillStyle = "cyan";
   ctx.fillRect(0, 0, W, H);
 
-  // draw the containers
-  for (let i = 0; i < containers.length; i++) {
-    ctx.fillStyle = containers[i].color;
-    ctx.fillRect(
-      containerGap + i * (containerWidth + containerGap),
-      H - containerHeight,
-      containerWidth,
-      containerHeight
-    );
-  }
-
-  // draw the junk
   // check if there's already a junk falling down
   if (!junk) junk = getNewJunk();
 
-  // draw the junk
-  ctx.fillStyle = junk.color;
-  ctx.fillRect(junk.position.x, junk.position.y, junkWidth, junkHeight);
+  // render the junk image
+  ctx.drawImage(
+    junk.image,
+    junk.position.x,
+    junk.position.y,
+    junkWidth,
+    junkHeight
+  );
 
   // check if the junk reached one of the containers
-  if (junk.position.y >= H - containerHeight - junkHeight / 2) {
+  if (junk.position.y >= H - containerHeight / 1.5) {
     for (let i = 0; i < containers.length; i++) {
       if (junk.position.x === junkHorizontalPositions[i]) {
         if (junk.type === containers[i].type) {
           console.log("Correct!");
+
+          frame = [0, 0, 0, 0];
 
           containers[i].increaseQuantity();
           currentSpeed += 0.1;
@@ -133,6 +129,36 @@ function render() {
   } else {
     // move the junk
     junk.moveY();
+  }
+
+  // draw the containers
+  for (let i = 0; i < containers.length; i++) {
+    // check if the junk is above the container
+    if (junk) {
+      if (junk.position.x === junkHorizontalPositions[i]) {
+        if (junk.type === containers[i].type) {
+          console.log("Junk is above the correct container");
+          frame[i] =
+            frame[i] < maxFrame / 2 - 1
+              ? frame[i] + 0.5
+              : maxFrame / 2 - 1;
+        }
+      } else {
+        frame[i] = 0;
+      }
+    }
+
+    ctx.drawImage(
+      containers[i].image,
+      0 + 230 * frame[i],
+      0,
+      210,
+      400,
+      containerGap + i * (containerWidth + containerGap),
+      H - containerHeight,
+      90,
+      150
+    );
   }
 
   window.requestAnimationFrame(render);
@@ -167,13 +193,15 @@ let containers;
 let junk;
 let currentSpeed;
 const keys = ["ArrowLeft", "ArrowRight"];
+let frame = [0, 0, 0, 0];
+const maxFrame = 6; // number of frames that the container image has
 
 const containerWidth = 80;
-const containerHeight = 30;
-const containerGap = 15;
+const containerHeight = 120;
+const containerGap = 14;
 
-const junkWidth = 50;
-const junkHeight = 50;
+const junkWidth = 70;
+const junkHeight = 70;
 const typesOfJunk = [
   { color: "red", type: "battery" },
   { color: "blue", type: "paper" },
@@ -182,12 +210,13 @@ const typesOfJunk = [
 ];
 
 const junkHorizontalPositions = [
-  containerGap + containerWidth / 2 - junkWidth / 2,
-  containerGap * 2 + containerWidth * 1.5 - junkWidth / 2,
-  containerGap * 3 + containerWidth * 2.5 - junkWidth / 2,
-  containerGap * 4 + containerWidth * 3.5 - junkWidth / 2,
+  containerGap + containerWidth / 2 - junkWidth / 2 + 4,
+  containerGap * 2 + containerWidth * 1.5 - junkWidth / 2 + 4,
+  containerGap * 3 + containerWidth * 2.5 - junkWidth / 2 + 4,
+  containerGap * 4 + containerWidth * 3.5 - junkWidth / 2 + 4,
 ];
 
+// DOM elements
 const startBtn = document.querySelector("#start-button");
 const leftBtn = document.querySelector("#left-btn");
 const rightBtn = document.querySelector("#right-btn");
