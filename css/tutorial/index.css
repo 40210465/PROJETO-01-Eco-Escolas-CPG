@@ -1,0 +1,227 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  background-image: url("../../assets/3.gif");
+  background-size: cover;
+}
+
+.tutorial-section {
+  width: 80%;
+  max-width: 1200px;
+  height: 97vh;
+  padding: 0;
+  margin: 0 auto;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 0 10px #000;
+  font-size: 2em;
+  margin: 0;
+  padding-top: 40px;
+  font-size: 3.5em;
+}
+
+.beginning-text {
+  text-align: center;
+  max-width: 1200px;
+  color: #fff;
+  text-shadow: 0 0 10px #000;
+  font-size: 2em;
+  padding-top: 40px;
+  font-size: 1.5em;
+  margin: 0 auto;
+}
+
+h2 {
+  margin-left: 40px;
+  color: #fff;
+  text-shadow: 0 0 10px #000;
+  font-size: 2em;
+  padding-top: 40px;
+  font-size: 2.5em;
+}
+
+.containers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: -40px;
+}
+
+.container-text {
+  margin-left: 40px;
+  margin-bottom: -10px;
+  color: #fff;
+  text-shadow: 0 0 10px #000;
+  font-size: 1.5em;
+  width: 50%;
+}
+
+ul {
+  margin-left: 40px;
+  width: 50%;
+}
+
+li {
+  color: #fff;
+  text-shadow: 0 0 10px #000;
+  font-size: 1.5em;
+}
+
+li span {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.green {
+  color: #00ff00;
+}
+
+.red {
+  color: #ff0000;
+}
+
+.blue {
+  color: #65baff;
+}
+
+.yellow {
+  color: #ffff00;
+}
+
+.containers-img {
+  width: 35%;
+  padding-right: 4%;
+}
+
+.containers-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trash {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.trash-text {
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 0 10px #000;
+  font-size: 2em;
+  padding-top: 40px;
+  font-size: 1.5em;
+  margin: 0 auto;
+  margin-top: -40px;
+  width: 95%;
+}
+
+.difficulties {
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 0 10px #000;
+  font-size: 2em;
+  padding-top: 40px;
+  font-size: 1.5em;
+  margin: 0 auto;
+  width: 98%;
+}
+
+.difficulties-text {
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 0 10px #000;
+  font-size: 2em;
+  padding-top: 40px;
+  font-size: 1.2em;
+  margin: 0 auto;
+  width: 98%;
+  margin-top: -60px;
+}
+
+.difficulty-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: -40px;
+}
+
+.difficulty-card {
+  width: 30%;
+  height: 280px;
+  background-color: rgba(0, 0, 0, 0.4);
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+
+.difficulty-card:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+  animation: spin 0.7s linear;
+}
+
+.difficulty-card:hover h3 {
+  text-decoration: underline;
+}
+
+.difficulty-card p {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.good-luck-h1 {
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 0 10px #000;
+  font-size: 2em;
+  padding-top: 40px;
+  font-size: 3.5em;
+  margin: 0 auto;
+  width: 98%;
+  margin-bottom: 50px;
+}
+
+/* ANIMATIONS */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #3477fd;
+  border-radius: 10px;
+}
