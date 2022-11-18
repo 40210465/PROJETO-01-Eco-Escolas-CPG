@@ -30,8 +30,6 @@ export function submitScore(difficulty, name, score) {
     return "There's already a higher score for this user";
   }
 
-  console.log(difficulty, name, score);
-
   scores.push({ name, difficulty, score });
   localStorage.scores = JSON.stringify(scores);
   return "Added new score";

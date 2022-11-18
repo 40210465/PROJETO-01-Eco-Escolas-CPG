@@ -1,18 +1,18 @@
 const values = {
   battery: {
-    image: "../../../assets/container_vermelho.png",
+    image: "../../../assets/containers/container_vermelho.png",
     color: "red",
   },
   paper: {
-    image: "../../../assets/container_azul.png",
+    image: "../../../assets/containers/container_azul.png",
     color: "blue",
   },
   glass: {
-    image: "../../../assets/container_verde.png",
+    image: "../../../assets/containers/container_verde.png",
     color: "green",
   },
   plastic: {
-    image: "../../../assets/container_amarelo.png",
+    image: "../../../assets/containers/container_amarelo.png",
     color: "yellow",
   },
 };

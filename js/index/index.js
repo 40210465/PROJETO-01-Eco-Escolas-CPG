@@ -12,7 +12,7 @@ playBtns.forEach((btn) => {
     // Wait a little so the audio may play
     setTimeout(() => {
       window.location.href = "../../html/game.html";
-    }, 150);
+    }, 200);
   });
 
   if (btn.value === "easy") {

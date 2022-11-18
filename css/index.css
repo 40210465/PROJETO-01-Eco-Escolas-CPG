@@ -32,33 +32,33 @@ body {
   animation: blink 1s linear infinite;
 }
 
-@keyframes blink {
-  50% {
-    color: #a7befb;
-  }
-}
-
 .go-up-arrow {
   position: fixed;
   bottom: 0;
   left: 0;
   margin: 1.5em;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.3);
   color: black;
   border: none;
   border-radius: 5px;
   padding: 0.5em;
   cursor: pointer;
   font-size: 1.5em;
-  transition: 0.5s;
+  transition: background-color 0.5s ease;
 }
 
 .go-up-arrow:hover {
   background: rgba(255, 255, 255, 0.5);
-  transition: 0.5s;
 }
 
 .hidden {
   display: none;
+}
+
+/* ANIMATIONS */
+@keyframes blink {
+  50% {
+    color: #a7befb;
+  }
 }

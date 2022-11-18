@@ -1,7 +1,0 @@
-colheita de images/desenhos :
-
-() baterias/pilhas ex: baterias
-() produtos de papel ex: folhas de papel embrulhadas
-() produtos de vidro ex: garrafas de vidro
-() produtos de plástico ex: embalagens de plástico, sacas
-

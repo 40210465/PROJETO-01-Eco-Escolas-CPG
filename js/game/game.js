@@ -379,8 +379,10 @@ function endGame() {
   scoreModal.innerText = player.highScore;
   document.querySelector("#name").value = playerName;
 
-  // show modal
-  document.querySelector("#modal").classList.add("show-modal");
+  // if score >= highScore, show the modal
+  if (result.score >= result.highScore) {
+    modal.classList.add("show-modal");
+  }
 }
 
 const canvas = document.querySelector("#game-canvas");
@@ -473,10 +475,14 @@ rightBtn.onclick = () => {
 submitForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  const difficulty = currentDifficulty;
+  const name = document.querySelector("#name").value;
+  const score = scoreModal.innerText;
+
   document.querySelector("#message").innerText = submitScore(
-    currentDifficulty,
-    document.querySelector("#name").value,
-    scoreModal.innerText
+    difficulty,
+    name,
+    score
   );
 });
 
@@ -487,7 +493,14 @@ closeModal.onclick = () => {
   modal.classList.remove("show-modal");
 };
 
-// Draw in the canvas the title of the game (Junk King)
-ctx.fillStyle = "black";
-ctx.font = "30px Arial";
-ctx.fillText("Junk King", W / 2 - 80, H / 2 - 100);
+// Draw in the canvas the title of the game (Junk King) with a text shadow
+
+// paint the background with dark blue
+ctx.fillStyle = "#1673fd";
+ctx.fillRect(0, 0, W, H);
+
+ctx.fillStyle = "white";
+ctx.font = "50px Courier New";
+ctx.shadowColor = "black";
+ctx.shadowBlur = 10;
+ctx.fillText("Junk King", W / 2 - 135, H / 2 - 100);

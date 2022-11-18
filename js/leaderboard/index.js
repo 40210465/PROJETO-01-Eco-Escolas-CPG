@@ -99,7 +99,7 @@ document.querySelector("#previous-page").addEventListener("click", () => {
 
 // when "document.querySelector("#filter").value" changes, the "change" event is triggered
 document.querySelector("#filter").addEventListener("change", (e) => {
-  playAudio.play();
+  // playAudio.play();
   page = 0;
   currentFilter = e.target.value;
   loadAllScores("animate-from-right", currentFilter);
