@@ -17,3 +17,7 @@ Assim, o nosso projeto trata-se de um jogo, tendo como base de jogabilidade do f
 
 - [ESMAD](https://www.esmad.ipp.pt/)
 - [Technologies and Information Systems for the Web](https://www.esmad.ipp.pt/cursos/licenciatura/663)
+
+## Extra Information
+
+Recycle assets used in this project were made by Clint Bellanger. You can find them [here](https://opengameart.org/content/recycle-items-set).
