@@ -102,7 +102,7 @@ function renderEasy() {
           frame = [0, 0, 0, 0];
 
           containers[i].increaseQuantity();
-          currentSpeed += 0.03;
+          currentSpeed += currentSpeed === maxSpeed ? 0 : 0.03;
 
           // update the score
           player.updateScore();
@@ -192,7 +192,7 @@ function renderNormal() {
           frame = [0, 0, 0, 0];
 
           containers[i].increaseQuantity();
-          currentSpeed += 0.05;
+          currentSpeed += currentSpeed === maxSpeed ? 0 : 0.05;
 
           // update the score
           player.updateScore();
@@ -293,7 +293,7 @@ function renderImpossible() {
           frame = [0, 0, 0, 0];
 
           containers[i].increaseQuantity();
-          currentSpeed += 0.07;
+          currentSpeed += currentSpeed === maxSpeed ? 0 : 0.07;
 
           // update the score
           player.updateScore();
@@ -405,6 +405,7 @@ let currentSpeed;
 const keys = ["ArrowLeft", "ArrowRight"];
 let frame = [0, 0, 0, 0];
 const maxFrame = 6; // number of frames that the container image has
+const maxSpeed = 4;
 
 // impossible difficulty variables
 const intervalFrames = 150;
@@ -472,6 +473,7 @@ rightBtn.onclick = () => {
   if (hasGameStarted) moveJunk("ArrowRight");
 };
 
+// Submit the score Form
 submitForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -491,6 +493,7 @@ rightBtn.disabled = true;
 
 closeModal.onclick = () => {
   modal.classList.remove("show-modal");
+  document.querySelector("#message").innerText = "";
 };
 
 // Draw in the canvas the title of the game (Junk King) with a text shadow

@@ -29,15 +29,19 @@
     display: flex;
     margin: 0 auto;
   }
+
+  .difficulty-card {
+    width: 90%;
+  }
 }
 
 @media (max-width: 825px) {
-  .containers-img img {
-    width: 70%;
+  .tutorial-section {
+    width: 95%;
   }
 
-  .difficulty-card p {
-    margin-top: -20px;
+  .containers-img img {
+    width: 70%;
   }
 }
 
@@ -50,7 +54,6 @@
 
   .difficulty-card p {
     font-size: 0.8em;
-    margin-top: 0;
   }
 }
 
@@ -60,6 +63,6 @@
   }
 
   .difficulty-card p {
-    margin-top: -20px;
+    margin-top: -13px;
   }
 }

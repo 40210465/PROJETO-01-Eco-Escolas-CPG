@@ -106,4 +106,7 @@
   justify-content: center;
   margin: 10px;
   font-size: 1.3em;
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: underline;
 }

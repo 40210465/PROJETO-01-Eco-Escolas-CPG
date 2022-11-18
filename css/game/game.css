@@ -5,6 +5,27 @@ body {
   background-color: #1672fd91;
 }
 
+.go-back {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 15px;
+  padding: 10px 12px;
+  background-color: #1673fd;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 20px;
+  transition: all 0.5s ease-in-out;
+}
+
+.go-back:hover {
+  color: #1673fd;
+  background-color: #ffffff;
+  transform: scale(1.1);
+}
+
 .game-section {
   display: flex;
   flex-direction: column;
