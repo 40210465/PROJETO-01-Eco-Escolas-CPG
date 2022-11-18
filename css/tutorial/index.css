@@ -7,8 +7,9 @@ body {
   font-size: 12px;
   margin: 0;
   padding: 0;
-  background-image: url("../../assets/3.gif");
+  background-image: url("../../assets/bgs/e426702edf874b181aced1e2fa5c6cde.gif");
   background-size: cover;
+  background-position: center;
 }
 
 .go-back {
@@ -24,6 +25,7 @@ body {
   text-decoration: none;
   font-size: 20px;
   transition: all 0.5s ease-in-out;
+  z-index: 1;
 }
 
 .go-back:hover {
@@ -39,7 +41,7 @@ body {
   padding: 0;
   margin: 0 auto;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.6);
   margin-top: 10px;
   margin-bottom: 10px;
   border-radius: 20px;

@@ -2,7 +2,10 @@ body {
   font-family: "Courier New", Courier, monospace;
   margin: 0;
   padding: 0;
-  background-color: #1672fd91;
+  /* background-color: #1672fd91; */
+  background-image: url("../../assets/bgs/Webp.net-gifmaker-4b.gif");
+  background-size: cover;
+  background-position: center;
 }
 
 .go-back {
@@ -17,6 +20,7 @@ body {
   border-radius: 50px;
   text-decoration: none;
   font-size: 20px;
+  z-index: 1;
   transition: all 0.5s ease-in-out;
 }
 

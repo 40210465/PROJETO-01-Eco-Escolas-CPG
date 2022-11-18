@@ -78,6 +78,8 @@ function loadAllScores(direction, filter) {
     updatePrevBtn("enable");
   }
 
+  console.log(page, scores.length, scoresPerPage);
+
   if (scoresToDisplay.length < scoresPerPage) {
     updateNextBtn("disable");
   } else {

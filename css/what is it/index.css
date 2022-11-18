@@ -1,6 +1,7 @@
 .what-is-it-section {
-  background-image: url("../../assets/1.gif");
+  background-image: url("../../assets/bgs/Charity_Box_GIF_16-9.gif");
   background-size: cover;
+  background-position: center;
   min-height: 870px;
   height: 100vh;
   padding: 0;

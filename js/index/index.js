@@ -35,3 +35,8 @@ playBtns.forEach((btn) => {
     document.querySelector(".content").classList.remove("bigger");
   });
 });
+
+document.querySelector(".content").addEventListener("mouseover", () => {
+  document.querySelector(".content").style.opacity = "1";
+  document.querySelector(".content").classList.remove("content-animate");
+});
