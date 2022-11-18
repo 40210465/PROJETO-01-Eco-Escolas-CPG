@@ -1,6 +1,9 @@
 .word {
   perspective: 1000px;
   margin-bottom: 50px;
+  opacity: 0;
+  animation: fade-in 0.7s ease-in-out 0.1s forwards,
+    translate-up 0.7s ease-in-out 0.1s forwards;
 }
 
 .word > span {
@@ -96,6 +99,26 @@
 
   90% {
     transform: translateY(-10vh) scaleY(1.5);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes translate-up {
+  0% {
+    transform: translateY(-100px);
+  }
+
+  100% {
+    transform: translateY(0);
   }
 }
 

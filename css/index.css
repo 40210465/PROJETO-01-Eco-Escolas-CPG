@@ -18,6 +18,9 @@ body {
   background: rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   padding: 0.5em;
+  opacity: 0;
+  animation: fade-in 0.7s ease-in-out 1s forwards, border 1s infinite,
+    translate-right 0.7s ease-in-out 1s forwards;
 }
 
 .link-btns > a {
@@ -60,5 +63,23 @@ body {
 @keyframes blink {
   50% {
     color: #a7befb;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes translate-right {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }

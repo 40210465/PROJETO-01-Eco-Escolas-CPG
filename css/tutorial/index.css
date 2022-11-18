@@ -44,6 +44,9 @@ body {
   margin-bottom: 10px;
   border-radius: 20px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  animation: fade-in 0.7s ease-in-out 0.05s forwards,
+    translate-down 0.7s ease-in-out 0.05s forwards;
 }
 
 h1 {
@@ -233,6 +236,24 @@ li span {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes translate-down {
+  0% {
+    transform: translateY(100px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }
 

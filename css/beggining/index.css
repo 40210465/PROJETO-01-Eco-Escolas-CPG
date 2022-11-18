@@ -55,7 +55,9 @@ a:hover {
   background-color: rgba(49, 49, 49, 0.5);
   border-radius: 15px;
   padding: 1em;
-  animation: border 1s infinite;
+  opacity: 0;
+  animation: fade-in 0.7s ease-in-out 0.1s forwards, border 1s infinite,
+    translate-down 0.7s ease-in-out 0.1s forwards;
   transition: all 0.5s ease-in-out;
 }
 
@@ -93,5 +95,25 @@ a:hover {
 
   100% {
     border: 1px solid #fff;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes translate-down {
+  0% {
+    transform: translateY(100px);
+  }
+
+  100% {
+    transform: translateY(0);
   }
 }
