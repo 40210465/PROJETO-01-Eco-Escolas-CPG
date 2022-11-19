@@ -1,5 +1,4 @@
 const difficulties = document.querySelectorAll(".difficulty-card");
-const playAudio = new Audio("../../assets/sounds/play button.mp3");
 
 const values = {
   Fácil: "easy",

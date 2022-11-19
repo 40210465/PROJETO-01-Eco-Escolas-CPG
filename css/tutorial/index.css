@@ -1,57 +1,28 @@
-html {
-  scroll-behavior: smooth;
-}
-
-body {
+.how-to-play-section {
   font-family: "Courier New", Courier, monospace;
   font-size: 12px;
   margin: 0;
   padding: 0;
+  padding-top: 20px;
   background-image: url("../../assets/bgs/e426702edf874b181aced1e2fa5c6cde.gif");
   background-size: cover;
   background-position: center;
-}
-
-.go-back {
-  position: fixed;
-  top: 0;
-  left: 0;
-  margin: 15px;
-  padding: 10px 12px;
-  background-color: #1673fd;
-  color: #ffffff;
-  border: 1px solid #ffffff;
-  border-radius: 50px;
-  text-decoration: none;
-  font-size: 20px;
-  transition: all 0.5s ease-in-out;
-  z-index: 1;
-}
-
-.go-back:hover {
-  color: #1673fd;
-  background-color: #ffffff;
-  transform: scale(1.1);
+  height: 100vh;
 }
 
 .tutorial-section {
   width: 80%;
   max-width: 1200px;
-  height: 97vh;
+  height: 95vh;
   padding: 0;
   margin: 0 auto;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.6);
-  margin-top: 10px;
-  margin-bottom: 10px;
   border-radius: 20px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  animation: fade-in 0.7s ease-in-out 0.05s forwards,
-    translate-down 0.7s ease-in-out 0.05s forwards;
 }
 
-h1 {
+.tutorial-section h1 {
   text-align: center;
   color: #fff;
   text-shadow: 0 0 10px #000;
@@ -72,7 +43,7 @@ h1 {
   margin: 0 auto;
 }
 
-h2 {
+.tutorial-section h2 {
   margin-left: 40px;
   color: #fff;
   text-shadow: 0 0 10px #000;
@@ -239,24 +210,6 @@ li span {
   }
   100% {
     transform: rotate(360deg);
-  }
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes translate-down {
-  0% {
-    transform: translateY(100px);
-  }
-  100% {
-    transform: translateY(0px);
   }
 }
 

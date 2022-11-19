@@ -22,6 +22,10 @@
     <link rel="stylesheet" href="./css/beggining/title-animation.css" />
     <link rel="stylesheet" href="./css/beggining/responsiveness.css" />
 
+    <!-- How to Play Section -->
+    <link rel="stylesheet" href="./css/tutorial/index.css" />
+    <link rel="stylesheet" href="./css/tutorial/responsiveness.css" />
+
     <!-- What is it Section -->
     <link rel="stylesheet" href="./css/what is it/index.css" />
     <link rel="stylesheet" href="./css/what is it/responsiveness.css" />
@@ -35,10 +39,11 @@
     <script src="./js/index/scroll.js" defer></script>
     <script src="./js/index/index.js" defer></script>
     <script src="./js/index/who made it/animation.js" defer></script>
+    <script src="./js/tutorial/index.js" defer></script>
   </head>
   <body scroll="no" style="overflow: hidden">
     <div class="link-btns active">
-      <a href="./html/tutorial.html" class="special" id="learn-play-link"
+      <a href="#how-to-play-section" class="special" id="learn-play-link"
         >Aprende a jogar</a
       >
       <a href="#what-is-it" id="what-is-link">O que é</a>
@@ -79,6 +84,106 @@
         </div>
       </div>
     </section>
+
+    <section class="how-to-play-section" id="how-to-play-section">
+      <div class="tutorial-section" id="tutorial-section">
+        <h1>Como Jogar</h1>
+        <p class="beginning-text">
+          Olá, seja bem vindo ao Junk King, o jogo que te vai ensinar a
+          reciclar corretamente com muita diversão! O objetivo do jogo é
+          reciclar os objetos corretamente, para isso você deve jogar o
+          lixo no contentor correto, caso contrário perderá pontos.
+        </p>
+
+        <h2>Contentores</h2>
+        <div class="containers">
+          <p class="container-text">
+            Inicialmente o jogo tem 4 contentores:
+          </p>
+          <ul>
+            <li>
+              <span class="green">Verde</span> - Utilizado para reciclar
+              vidro.
+            </li>
+            <li>
+              <span class="blue">Azul</span> - Utilizado para reciclar
+              papel e cartão.
+            </li>
+            <li>
+              <span class="yellow">Amarelo</span> - Utilizado para reciclar
+              plástico e metal.
+            </li>
+            <li>
+              <span class="red">Vermelho</span> - Utilizado para reciclar
+              pilhas e baterias.
+            </li>
+          </ul>
+          <div class="containers-img">
+            <img
+              src="../assets/containers/containers.png"
+              alt="Contentores"
+            />
+          </div>
+        </div>
+
+        <h2>Lixo</h2>
+        <div class="trash">
+          <p class="trash-text">
+            Durante o jogo irá aparecer lixo aleatório, que pode ser:
+            <span class="red">Pilha ou Bateria</span>,
+            <span class="blue">Cartão ou Papel</span>,
+            <span class="green">Vidro</span>,
+            <span class="yellow">Plástico</span>
+            <br />
+            O teu objetivo é jogar o lixo no contentor correto, caso
+            contrário perderá pontos. Para moveres o lixo, basta usar as
+            setas do teu teclado (esquerda e direita). Caso estejas a jogar
+            no teu telemóvel, basta usar os botões que aparecem na parte
+            inferior do ecrã.
+          </p>
+        </div>
+
+        <h2>Diferentes níveis de dificuldade</h2>
+        <div class="difficulties">
+          <p class="difficulties-text">
+            O jogo tem 3 níveis de dificuldade:
+          </p>
+
+          <div class="difficulty-cards">
+            <div class="difficulty-card">
+              <h3>Fácil</h3>
+              <p>
+                Neste nível, a velocidade do lixo é mais lenta, o que te
+                permite ter mais tempo para reciclar corretamente. Além
+                disso, quando o lixo estiver a cair em cima do contentor
+                correto, este irá abrir-se.
+              </p>
+            </div>
+            <div class="difficulty-card">
+              <h3>Normal</h3>
+              <p>
+                Neste nível, a velocidade do lixo é normal e ao contrário
+                do nível fácil, quando o lixo estiver a cair em cima de um
+                contentor, apesar de este abrir-se, não significa que seja
+                o contentor correto.
+              </p>
+            </div>
+            <div class="difficulty-card">
+              <h3>Impossível</h3>
+              <p>
+                Neste nível, a velocidade do lixo é mais rápida , o que te
+                obriga a ter mais atenção para reciclar corretamente. Além
+                disso, à medida que o jogo avança, os contentores vão
+                mudando de posição aleatoriamente.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h1 class="good-luck-h1">Boa sorte e diverte-te a reciclar!</h1>
+      </div>
+    </section>
+
     <section id="what-is-it" class="what-is-it-section">
       <div class="what-is-it-content">
         <h2>O que é?</h2>
