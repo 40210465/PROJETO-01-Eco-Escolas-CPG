@@ -7,8 +7,6 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-
-  /* center the content to the middle of it */
   display: flex;
   justify-content: center;
   align-items: center;
