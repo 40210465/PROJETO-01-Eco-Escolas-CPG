@@ -78,9 +78,14 @@ function loadAllScores(direction, filter) {
     updatePrevBtn("enable");
   }
 
-  console.log(page, scores.length, scoresPerPage);
-
-  if (scoresToDisplay.length < scoresPerPage) {
+  // Disable the next button if there are no more scores to display
+  if (
+    scoresToDisplay.length < scoresPerPage ||
+    sortedScores.slice(
+      (page + 1) * scoresPerPage,
+      (page + 1) * scoresPerPage + scoresPerPage
+    ).length === 0
+  ) {
     updateNextBtn("disable");
   } else {
     updateNextBtn("enable");

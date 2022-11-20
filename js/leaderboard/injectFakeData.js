@@ -4,108 +4,108 @@ const scores = [
   {
     name: "Pior Jogador do Mundo",
     difficulty: "easy",
-    score: 100,
+    score: 0,
   },
   {
     name: "Segundo Pior Jogador do Mundo",
     difficulty: "easy",
-    score: 200,
+    score: 1,
   },
   {
     name: "Terceiro Pior Jogador do Mundo",
     difficulty: "easy",
-    score: 300,
+    score: 2,
   },
-  {
+  /* {
     name: "Noobzinho da noite",
     difficulty: "normal",
-    score: 1700,
-  },
+    score: 5,
+  }, */
   {
     name: "Noobzinho da manhã",
     difficulty: "normal",
-    score: 1500,
+    score: 6,
   },
   {
     name: "Jogador Mediano",
     difficulty: "normal",
-    score: 15110,
+    score: 9,
   },
   {
     name: "Aquele que não é tão ruim",
     difficulty: "normal",
-    score: 22668,
+    score: 20,
   },
   {
     name: "Jogador Bom",
     difficulty: "normal",
-    score: 11223,
+    score: 50,
   },
   {
     name: "O mestre do Tkinter",
     difficulty: "impossible",
-    score: 21550,
+    score: 150,
   },
   {
     name: "Jogador de Elite",
     difficulty: "normal",
-    score: 18553,
+    score: 55,
   },
   {
     name: "Um dos melhores",
     difficulty: "normal",
-    score: 19562,
+    score: 67,
   },
   {
     name: "Jogador da reciclagem",
     difficulty: "easy",
-    score: 25000,
+    score: 49,
   },
   {
     name: "AMOR E PAZ",
     difficulty: "easy",
-    score: 17025,
+    score: 23,
   },
   {
     name: "Olá, Mundo!",
     difficulty: "easy",
-    score: 4420,
+    score: 17,
   },
   {
     name: "Jogador da Lua",
     difficulty: "normal",
-    score: 9555,
+    score: 35,
   },
   {
     name: "Jogador do Sol",
     difficulty: "normal",
-    score: 9615,
+    score: 34,
   },
   {
     name: "Jogador da Terra",
     difficulty: "normal",
-    score: 9502,
+    score: 33,
   },
   {
     name: "Jogador do Universo",
     difficulty: "normal",
-    score: 10000,
+    score: 44,
   },
 
   {
     name: "Benfiquista",
     difficulty: "easy",
-    score: 4000,
+    score: 18,
   },
   {
     name: "Portista",
     difficulty: "easy",
-    score: 5000,
+    score: 19,
   },
   {
     name: "Sportinguista",
     difficulty: "easy",
-    score: 2000,
+    score: 17,
   },
   {
     name: "Não sou batoteiro :)",
