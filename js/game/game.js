@@ -408,6 +408,7 @@ const currentDifficulty = localStorage.difficulty || "easy";
 const backGroundImg = new Image();
 backGroundImg.src = "../../assets/bg.jpg";
 const entrySound = new Audio("../../assets/sounds/entry.mp3");
+const playSound = new Audio("../../assets/sounds/play button.mp3");
 
 let hasGameStarted = false;
 let player;
@@ -467,23 +468,31 @@ const closeModal = document.querySelector("#close");
 const submitForm = document.querySelector("#submit-score");
 
 startBtn.onclick = () => {
+  playSound.play();
   startGame();
 };
 
 // Add event listener to move the player
 window.addEventListener("keydown", (e) => {
   if (hasGameStarted && keys.includes(e.key)) {
+    playSound.play();
     moveJunk(e.key);
   }
 });
 
 // Buttons used on touch screen devices
 leftBtn.onclick = () => {
-  if (hasGameStarted) moveJunk("ArrowLeft");
+  if (hasGameStarted) {
+    playSound.play();
+    moveJunk("ArrowLeft");
+  }
 };
 
 rightBtn.onclick = () => {
-  if (hasGameStarted) moveJunk("ArrowRight");
+  if (hasGameStarted) {
+    playSound.play();
+    moveJunk("ArrowRight");
+  }
 };
 
 // Submit the score Form
@@ -510,5 +519,4 @@ closeModal.onclick = () => {
 };
 
 // Draw in the canvas the title of the game (Junk King) with a text shadow
-
 drawText("Junk King");
