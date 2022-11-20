@@ -26,6 +26,24 @@
   }
 }
 
+@media (max-width: 400px) {
+  #game-canvas {
+    width: 300px;
+  }
+}
+
+@media (max-width: 350px) {
+  #game-canvas {
+    width: 250px;
+  }
+}
+
+@media (max-width: 300px) {
+  #game-canvas {
+    width: 200px;
+  }
+}
+
 @media (max-height: 715px) {
   #game-canvas {
     height: 400px;
