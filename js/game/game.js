@@ -395,7 +395,7 @@ function endGame() {
     modal.classList.add("show-modal");
   }
 
-  drawText("Junk King");
+  drawText("Game Over!");
 }
 
 const canvas = document.querySelector("#game-canvas");
