@@ -105,7 +105,7 @@ function renderEasy() {
     for (let i = 0; i < containers.length; i++) {
       if (junk.position.x === junkHorizontalPositions[i]) {
         // play the sound
-        entrySound.play();
+        junk.sound.play();
 
         if (junk.type === containers[i].type) {
           console.log("Correct!");

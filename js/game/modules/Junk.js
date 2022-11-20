@@ -6,6 +6,7 @@ const values = {
       "../../../assets/lixos/PilhaoPilhaQ.png",
     ],
     color: "red",
+    sound: "../../../assets/sounds/pilha.mp3",
   },
   paper: {
     image: [
@@ -14,6 +15,7 @@ const values = {
       "../../../assets/lixos/PapelSaco.png",
     ],
     color: "blue",
+    sound: "../../../assets/sounds/papel.mp3",
   },
   glass: {
     image: [
@@ -22,6 +24,7 @@ const values = {
       "../../../assets/lixos/VidroSumo.png",
     ],
     color: "green",
+    sound: "../../../assets/sounds/vidro.mp3",
   },
   plastic: {
     image: [
@@ -30,6 +33,7 @@ const values = {
       "../../../assets/lixos/PlasticoGarrafao.png",
     ],
     color: "yellow",
+    sound: "../../../assets/sounds/plastico.mp3",
   },
 };
 
@@ -48,6 +52,7 @@ export class Junk {
     this.image = loadImage(
       values[type].image[Math.floor(Math.random() * 3)]
     );
+    this.sound = new Audio(values[type].sound);
   }
 
   moveY() {
