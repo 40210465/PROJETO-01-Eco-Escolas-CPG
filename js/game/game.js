@@ -195,7 +195,7 @@ function renderNormal() {
     for (let i = 0; i < containers.length; i++) {
       if (junk.position.x === junkHorizontalPositions[i]) {
         // play the sound
-        entrySound.play();
+        junk.sound.play();
 
         if (junk.type === containers[i].type) {
           console.log("Correct!");
@@ -296,7 +296,7 @@ function renderImpossible() {
     for (let i = 0; i < containers.length; i++) {
       if (junk.position.x === junkHorizontalPositions[i]) {
         // play the sound
-        entrySound.play();
+        junk.sound.play();
 
         if (junk.type === containers[i].type) {
           console.log("Correct!");
@@ -407,7 +407,6 @@ const currentDifficulty = localStorage.difficulty || "easy";
 // Assets
 const backGroundImg = new Image();
 backGroundImg.src = "../../assets/bg.jpg";
-const entrySound = new Audio("../../assets/sounds/entry.mp3");
 const playSound = new Audio("../../assets/sounds/play button.mp3");
 
 let hasGameStarted = false;
