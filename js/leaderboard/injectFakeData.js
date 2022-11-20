@@ -16,11 +16,11 @@ const scores = [
     difficulty: "easy",
     score: 2,
   },
-  /* {
+  {
     name: "Noobzinho da noite",
     difficulty: "normal",
     score: 5,
-  }, */
+  },
   {
     name: "Noobzinho da manhã",
     difficulty: "normal",
