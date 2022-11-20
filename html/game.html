@@ -17,8 +17,10 @@
 
     <link rel="stylesheet" href="../css/game/game.css" />
     <link rel="stylesheet" href="../css/game/submitModal.css" />
+    <link rel="stylesheet" href="../css/game/responsiveness.css" />
 
     <!-- JS -->
+    <script src="../js/game/changeDifficulty.js" defer></script>
     <script type="module" src="../js/game/game.js" defer></script>
   </head>
   <body>
@@ -26,40 +28,69 @@
       <i class="fas fa-arrow-left"></i>
     </a>
 
-    <section class="score-section">
-      <h1>HighScore: <span id="high-score">?</span></h1>
-      <h1>Score: <span id="score">?</span></h1>
-      <h1>Lives: <span id="lives">?</span></h1>
-    </section>
-    <section class="game-section">
-      <canvas id="game-canvas" width="400" height="650">
-        This browser doesn't support Junk King Game :(
-      </canvas>
+    <div class="main">
+      <section class="score-section">
+        <h1>Melhor Pontuação: <span id="high-score">?</span></h1>
+        <h1>Pontuação: <span id="score">?</span></h1>
+        <h1>Vidas: <span id="lives">?</span></h1>
+        <h1>Dificuldade:<span id="difficulty-selected"></span></h1>
 
-      <div class="btns">
-        <button id="left-btn" class="game-direction-btn">Left</button>
-        <button id="right-btn" class="game-direction-btn">Right</button>
-      </div>
+        <canvas
+          id="status-canvas"
+          class="status-canvas"
+          width="500"
+          height="500"
+        >
+          Your browser does not support HTML5 Canvas.
+        </canvas>
 
-      <button class="start-button" id="start-button">Start</button>
-    </section>
+        <div class="change-difficulty">
+          <h1>Alterar Dificuldade</h1>
+        </div>
+
+        <div class="extra-info">
+          <a href="../index.html#how-to-play-section" target="_self"
+            >Como Jogar</a
+          >
+          <a href="../html/leaderboard.html" target="_self"
+            >Tabela de Pontuação</a
+          >
+        </div>
+      </section>
+      <section class="game-section">
+        <canvas id="game-canvas" width="400" height="650">
+          This browser doesn't support Junk King Game :(
+        </canvas>
+
+        <div class="btns">
+          <button id="left-btn" class="game-direction-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <button id="right-btn" class="game-direction-btn">
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <button class="start-button" id="start-button">Start</button>
+      </section>
+    </div>
 
     <!-- submit name and score modal -->
     <div class="modal" id="modal">
       <div class="modal-content">
         <!-- close button -->
         <span class="close" id="close">&times;</span>
-        <h1>Game Over</h1>
-        <h2>Score: <span id="modal-score">?</span></h2>
+        <h1>Parabéns!</h1>
+        <h2>Conseguiste <span id="modal-score">?</span> pontos!</h2>
         <form id="submit-score">
           <input
             type="text"
             id="name"
-            placeholder="Enter your name..."
+            placeholder="Introduz o teu nome..."
             required
           />
           <span id="message" class="modal-message"></span>
-          <input type="submit" id="submit-btn" value="Submit" />
+          <input type="submit" id="submit-btn" value="Submeter" />
         </form>
       </div>
     </div>

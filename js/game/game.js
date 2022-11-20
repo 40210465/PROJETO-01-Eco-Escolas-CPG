@@ -4,6 +4,17 @@ import { Junk } from "./modules/Junk.js";
 import { Player } from "./modules/Player.js";
 import { submitScore } from "./submitScore.js";
 
+function drawText(text) {
+  ctx.fillStyle = "#1673fd";
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.fillStyle = "white";
+  ctx.font = "50px Courier New";
+  ctx.shadowColor = "black";
+  ctx.shadowBlur = 10;
+  ctx.fillText(text, W / 2 - 135, H / 2 - 100);
+}
+
 function startGame() {
   hasGameStarted = true;
   startBtn.disabled = true;
@@ -383,6 +394,8 @@ function endGame() {
   if (result.score >= result.highScore) {
     modal.classList.add("show-modal");
   }
+
+  drawText("Junk King");
 }
 
 const canvas = document.querySelector("#game-canvas");
@@ -498,12 +511,4 @@ closeModal.onclick = () => {
 
 // Draw in the canvas the title of the game (Junk King) with a text shadow
 
-// paint the background with dark blue
-ctx.fillStyle = "#1673fd";
-ctx.fillRect(0, 0, W, H);
-
-ctx.fillStyle = "white";
-ctx.font = "50px Courier New";
-ctx.shadowColor = "black";
-ctx.shadowBlur = 10;
-ctx.fillText("Junk King", W / 2 - 135, H / 2 - 100);
+drawText("Junk King");

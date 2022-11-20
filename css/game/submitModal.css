@@ -45,7 +45,7 @@
 }
 
 .modal-content h2 span {
-  color: #1673fd;
+  text-decoration: underline;
 }
 
 .modal-content form {
