@@ -5,6 +5,14 @@ body {
   background-image: url("../../assets/bgs/Webp.net-gifmaker-4b.gif");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  /* center the content to the middle of it */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .go-back {
@@ -31,11 +39,8 @@ body {
 
 .main {
   width: 80%;
-  height: 85vh;
-  min-height: 730px;
+  height: auto;
   margin: 0 auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 20px;
   display: grid;
