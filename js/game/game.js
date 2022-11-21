@@ -31,7 +31,7 @@ function startGame() {
   ];
 
   junk = false;
-  currentSpeed = 1;
+  currentSpeed = 3;
 
   updateScoreDOM();
 
@@ -408,6 +408,8 @@ const currentDifficulty = localStorage.difficulty || "easy";
 const backGroundImg = new Image();
 backGroundImg.src = "../../assets/bg.jpg";
 const playSound = new Audio("../../assets/sounds/play button.mp3");
+const gameMusic = new Audio("../../assets/sounds/gameMusic.mp3")
+gameMusic.volume = 0.075;
 
 let hasGameStarted = false;
 let player;
@@ -468,7 +470,9 @@ const submitForm = document.querySelector("#submit-score");
 
 startBtn.onclick = () => {
   playSound.play();
+  gameMusic.play()
   startGame();
+  smile()
 };
 
 // Add event listener to move the player
@@ -519,3 +523,85 @@ closeModal.onclick = () => {
 
 // Draw in the canvas the title of the game (Junk King) with a text shadow
 drawText("Junk King");
+
+// smile animation
+
+const smileCanvas = document.querySelector("#status-canvas");
+const smileCtx = smileCanvas.getContext("2d");
+
+function smile() {
+  smileCtx.clearRect(0, 0, smileCanvas.width, smileCanvas.height)
+
+  let timer;
+    smileCtx.lineWidth = 20;
+    smileCtx.fillStyle = "yellow";
+    smileCtx.strokeStyle = "black";
+
+    let velY = 2;
+    let posYpc = 400; 
+    let posY = 280;   
+    let inicialEyeAngleLeft = 210;
+    let inicialEyeAngleRight = 290;
+    let eyeLength = 130
+
+    if (timer == undefined)
+      timer = window.setInterval(renderSmile, 1000/30);
+    
+      function renderSmile() {
+      
+        let playerLives = document.querySelector("#lives").innerHTML;
+
+      smileCtx.clearRect(0, 0, smileCanvas.width, smileCanvas.height);
+
+      // Face
+      smileCtx.beginPath();
+      smileCtx.arc(250, 263, 180, 0, 2 * Math.PI);
+      smileCtx.stroke();
+      smileCtx.fill();
+
+       //eyes
+      smileCtx.beginPath();
+      smileCtx.moveTo(220, eyeLength);
+      smileCtx.lineTo(inicialEyeAngleLeft, 200);
+      smileCtx.moveTo(280, eyeLength);
+      smileCtx.lineTo(inicialEyeAngleRight, 200);
+      smileCtx.stroke();
+
+      //mouth
+      smileCtx.beginPath();
+      smileCtx.moveTo(150, posY);
+      smileCtx.quadraticCurveTo(250, posYpc, 350, posY);
+      smileCtx.stroke();
+
+      //UPDATES
+      posY += velY;
+      eyeLength += 0.5 * velY
+      inicialEyeAngleLeft +=  0.2 * velY
+      inicialEyeAngleRight -= 0.2 * velY
+      posYpc -= 4 * velY;
+
+
+      if (playerLives == 1){
+          velY = 1
+          smileCtx.fillStyle = "red"
+        if (posY > 325 || posY < 150){
+          velY = 0
+        }
+      }
+      
+      if (playerLives == 2){
+          velY = 1
+          smileCtx.fillStyle = "orange"
+        if (posY > 303 || posY < 250){
+          velY = 0
+        }
+      }
+      if (playerLives == 3){
+        velY = 0
+      }
+      
+  
+      
+    }
+}
+
