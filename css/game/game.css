@@ -168,6 +168,17 @@ body {
   transition: 0.3s;
 }
 
+#mute, #play{
+  right: 650px;
+  top: 350px;
+  width: 70px;
+  position: absolute; 
+}
+
+#muteIcon, #soundIcon {
+  width: 35px;
+}
+
 .game-section > .btns > button:hover {
   background-color: #ffffff;
   color: #1673fd;

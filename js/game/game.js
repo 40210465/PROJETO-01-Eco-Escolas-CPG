@@ -472,6 +472,7 @@ startBtn.onclick = () => {
   playSound.play();
   gameMusic.play()
   startGame();
+  pauseButton.style.visibility  = "visible"
   smile()
 };
 
@@ -529,9 +530,10 @@ drawText("Junk King");
 const smileCanvas = document.querySelector("#status-canvas");
 const smileCtx = smileCanvas.getContext("2d");
 
+
 function smile() {
   smileCtx.clearRect(0, 0, smileCanvas.width, smileCanvas.height)
-
+  
   let timer;
     smileCtx.lineWidth = 20;
     smileCtx.fillStyle = "yellow";
@@ -549,8 +551,6 @@ function smile() {
     
       function renderSmile() {
       
-        let playerLives = document.querySelector("#lives").innerHTML;
-
       smileCtx.clearRect(0, 0, smileCanvas.width, smileCanvas.height);
 
       // Face
@@ -572,14 +572,16 @@ function smile() {
       smileCtx.moveTo(150, posY);
       smileCtx.quadraticCurveTo(250, posYpc, 350, posY);
       smileCtx.stroke();
-
+      
+      
       //UPDATES
       posY += velY;
       eyeLength += 0.5 * velY
       inicialEyeAngleLeft +=  0.2 * velY
       inicialEyeAngleRight -= 0.2 * velY
       posYpc -= 4 * velY;
-
+      
+        let playerLives = document.querySelector("#lives").innerHTML;
 
       if (playerLives == 1){
           velY = 1
@@ -599,9 +601,27 @@ function smile() {
       if (playerLives == 3){
         velY = 0
       }
-      
-  
-      
+
+      if (playerLives == 0) {
+        smileCtx.clearRect(0, 0, smileCanvas.width, smileCanvas.height);
+      }
     }
+    
 }
+
+let pauseButton = document.querySelector("#mute")
+let playButton = document.querySelector("#play")
+
+pauseButton.addEventListener("click", function() {
+  gameMusic.pause();
+  pauseButton.style.visibility  = "hidden"
+  playButton.style.visibility = "visible"
+})
+
+
+playButton.addEventListener("click", function() {
+  gameMusic.play()
+  pauseButton.style.visibility  = "visible"
+  playButton.style.visibility = "hidden"
+})
 
