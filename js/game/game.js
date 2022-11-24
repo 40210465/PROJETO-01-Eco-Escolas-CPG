@@ -230,7 +230,7 @@ function renderNormal() {
     if (junk) {
       if (junk.position.x === junkHorizontalPositions[i]) {
         // if it's close to the container
-        if (junk.position.y >= H - containerHeight / 1.5 - 200) {
+        if (junk.position.y >= H - containerHeight / 1.5 - 300) {
           console.log(
             "The junk is close to the container - Opening the container..."
           );
