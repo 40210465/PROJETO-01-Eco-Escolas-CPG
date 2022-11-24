@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="icon" type="image/svg+xml" href="../assets/favicon.ico" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Junk King - Game</title>
     <!-- CSS -->
     <link
@@ -29,6 +26,14 @@
     </a>
 
     <div class="main">
+      <button class="game-direction-btn play-btn" id="play">
+        <img
+          src="../assets/icons/volume.png"
+          class="soundIcon"
+          id="soundIcon"
+        />
+      </button>
+
       <section class="score-section">
         <h1>Melhor Pontuação: <span id="high-score">?</span></h1>
         <h1>Pontuação: <span id="score">?</span></h1>
@@ -63,8 +68,6 @@
         </canvas>
 
         <div class="btns">
-          <button class="game-direction-btn" id="mute" style="visibility: hidden;"><img src="../assets/icons/mute.png" id="muteIcon"></button>
-          <button class="game-direction-btn" id="play" style="visibility: hidden;"><img src="../assets/icons/volume.png" id="soundIcon"></button>
           <button id="left-btn" class="game-direction-btn">
             <i class="fa-solid fa-arrow-left"></i>
           </button>

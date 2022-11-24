@@ -168,14 +168,21 @@ body {
   transition: 0.3s;
 }
 
-#mute, #play{
-  right: 650px;
-  top: 350px;
+.play-btn {
+  position: fixed;
+  top: 0;
+  right: 0;
   width: 70px;
-  position: absolute; 
+  margin-top: 15px;
+  margin-right: 15px;
 }
 
-#muteIcon, #soundIcon {
+.play-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.soundIcon {
   width: 35px;
 }
 

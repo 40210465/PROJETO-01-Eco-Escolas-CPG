@@ -16,6 +16,7 @@ function drawText(text) {
 }
 
 function startGame() {
+  playButton.disabled = false;
   hasGameStarted = true;
   startBtn.disabled = true;
   leftBtn.disabled = false;
@@ -31,7 +32,7 @@ function startGame() {
   ];
 
   junk = false;
-  currentSpeed = 3;
+  currentSpeed = 1;
 
   updateScoreDOM();
 
@@ -46,8 +47,7 @@ function updateScoreDOM() {
 
 function getNewJunk() {
   // get a random junk type
-  const junkType =
-    typesOfJunk[Math.floor(Math.random() * typesOfJunk.length)];
+  const junkType = typesOfJunk[Math.floor(Math.random() * typesOfJunk.length)];
 
   // get a random location
   const xLocation =
@@ -56,13 +56,7 @@ function getNewJunk() {
     ];
 
   /* 0 -> initial Y location */
-  return new Junk(
-    junkType.color,
-    junkType.type,
-    xLocation,
-    0,
-    currentSpeed
-  );
+  return new Junk(junkType.color, junkType.type, xLocation, 0, currentSpeed);
 }
 
 function moveJunk(key) {
@@ -150,9 +144,7 @@ function renderEasy() {
         if (junk.type === containers[i].type) {
           console.log("Junk is above the correct container");
           frame[i] =
-            frame[i] < maxFrame / 2 - 1
-              ? frame[i] + 0.5
-              : maxFrame / 2 - 1;
+            frame[i] < maxFrame / 2 - 1 ? frame[i] + 0.5 : maxFrame / 2 - 1;
         }
       } else {
         frame[i] = 0;
@@ -243,9 +235,7 @@ function renderNormal() {
             "The junk is close to the container - Opening the container..."
           );
           frame[i] =
-            frame[i] < maxFrame / 2 - 1
-              ? frame[i] + 0.5
-              : maxFrame / 2 - 1;
+            frame[i] < maxFrame / 2 - 1 ? frame[i] + 0.5 : maxFrame / 2 - 1;
         }
       } else {
         frame[i] = 0;
@@ -344,9 +334,7 @@ function renderImpossible() {
             "The junk is close to the container - Opening the container..."
           );
           frame[i] =
-            frame[i] < maxFrame / 2 - 1
-              ? frame[i] + 0.5
-              : maxFrame / 2 - 1;
+            frame[i] < maxFrame / 2 - 1 ? frame[i] + 0.5 : maxFrame / 2 - 1;
         }
       } else {
         frame[i] = 0;
@@ -370,6 +358,11 @@ function renderImpossible() {
 }
 
 function endGame() {
+  playButton.disabled = true;
+
+  // stop music
+  gameMusic.pause();
+
   hasGameStarted = false;
   startBtn.disabled = false;
   leftBtn.disabled = true;
@@ -396,6 +389,93 @@ function endGame() {
   }
 
   drawText("Game Over!");
+  smileCtx.clearRect(0, 0, smileCanvas.width, smileCanvas.height);
+}
+
+function toggleMusic() {
+  if (gameMusic.paused) {
+    gameMusic.play();
+    document.querySelector("#soundIcon").src = "../../assets/icons/volume.png";
+    isMusicPlaying = true;
+  } else {
+    gameMusic.pause();
+    document.querySelector("#soundIcon").src = "../../assets/icons/mute.png";
+    isMusicPlaying = false;
+  }
+}
+
+// smile animation
+function smile() {
+  smileCtx.clearRect(0, 0, smileCanvas.width, smileCanvas.height);
+
+  let timer;
+  smileCtx.lineWidth = 20;
+  smileCtx.fillStyle = "yellow";
+  smileCtx.strokeStyle = "black";
+
+  let velY = 2;
+  let posYpc = 400;
+  let posY = 280;
+  let inicialEyeAngleLeft = 210;
+  let inicialEyeAngleRight = 290;
+  let eyeLength = 130;
+
+  timer = setInterval(() => {
+    smileCtx.clearRect(0, 0, smileCanvas.width, smileCanvas.height);
+
+    // Face
+    smileCtx.beginPath();
+    smileCtx.arc(250, 263, 180, 0, 2 * Math.PI);
+    smileCtx.stroke();
+    smileCtx.fill();
+
+    //eyes
+    smileCtx.beginPath();
+    smileCtx.moveTo(220, eyeLength);
+    smileCtx.lineTo(inicialEyeAngleLeft, 200);
+    smileCtx.moveTo(280, eyeLength);
+    smileCtx.lineTo(inicialEyeAngleRight, 200);
+    smileCtx.stroke();
+
+    //mouth
+    smileCtx.beginPath();
+    smileCtx.moveTo(150, posY);
+    smileCtx.quadraticCurveTo(250, posYpc, 350, posY);
+    smileCtx.stroke();
+
+    //UPDATES
+    posY += velY;
+    eyeLength += 0.5 * velY;
+    inicialEyeAngleLeft += 0.2 * velY;
+    inicialEyeAngleRight -= 0.2 * velY;
+    posYpc -= 4 * velY;
+
+    let playerLives = document.querySelector("#lives").innerText;
+
+    if (playerLives == 1) {
+      velY = 1;
+      smileCtx.fillStyle = "red";
+      if (posY > 325 || posY < 150) {
+        velY = 0;
+      }
+    }
+
+    if (playerLives == 2) {
+      velY = 1;
+      smileCtx.fillStyle = "orange";
+      if (posY > 303 || posY < 250) {
+        velY = 0;
+      }
+    }
+    if (playerLives == 3) {
+      velY = 0;
+    }
+
+    if (playerLives == 0) {
+      smileCtx.clearRect(0, 0, smileCanvas.width, smileCanvas.height);
+      clearInterval(timer);
+    }
+  }, 30);
 }
 
 const canvas = document.querySelector("#game-canvas");
@@ -408,8 +488,8 @@ const currentDifficulty = localStorage.difficulty || "easy";
 const backGroundImg = new Image();
 backGroundImg.src = "../../assets/bg.jpg";
 const playSound = new Audio("../../assets/sounds/play button.mp3");
-const gameMusic = new Audio("../../assets/sounds/gameMusic.mp3")
-gameMusic.volume = 0.075;
+const gameMusic = new Audio("../../assets/sounds/gameMusic.mp3");
+gameMusic.volume = 0.3;
 
 let hasGameStarted = false;
 let player;
@@ -467,13 +547,17 @@ const modal = document.querySelector("#modal");
 const scoreModal = document.querySelector("#modal-score");
 const closeModal = document.querySelector("#close");
 const submitForm = document.querySelector("#submit-score");
+const smileCanvas = document.querySelector("#status-canvas");
+const smileCtx = smileCanvas.getContext("2d");
+let playButton = document.querySelector("#play");
+playButton.disabled = true;
+let isMusicPlaying = true;
 
 startBtn.onclick = () => {
   playSound.play();
-  gameMusic.play()
+  if (isMusicPlaying) gameMusic.play();
   startGame();
-  pauseButton.style.visibility  = "visible"
-  smile()
+  smile();
 };
 
 // Add event listener to move the player
@@ -525,103 +609,6 @@ closeModal.onclick = () => {
 // Draw in the canvas the title of the game (Junk King) with a text shadow
 drawText("Junk King");
 
-// smile animation
-
-const smileCanvas = document.querySelector("#status-canvas");
-const smileCtx = smileCanvas.getContext("2d");
-
-
-function smile() {
-  smileCtx.clearRect(0, 0, smileCanvas.width, smileCanvas.height)
-  
-  let timer;
-    smileCtx.lineWidth = 20;
-    smileCtx.fillStyle = "yellow";
-    smileCtx.strokeStyle = "black";
-
-    let velY = 2;
-    let posYpc = 400; 
-    let posY = 280;   
-    let inicialEyeAngleLeft = 210;
-    let inicialEyeAngleRight = 290;
-    let eyeLength = 130
-
-    if (timer == undefined)
-      timer = window.setInterval(renderSmile, 1000/30);
-    
-      function renderSmile() {
-      
-      smileCtx.clearRect(0, 0, smileCanvas.width, smileCanvas.height);
-
-      // Face
-      smileCtx.beginPath();
-      smileCtx.arc(250, 263, 180, 0, 2 * Math.PI);
-      smileCtx.stroke();
-      smileCtx.fill();
-
-       //eyes
-      smileCtx.beginPath();
-      smileCtx.moveTo(220, eyeLength);
-      smileCtx.lineTo(inicialEyeAngleLeft, 200);
-      smileCtx.moveTo(280, eyeLength);
-      smileCtx.lineTo(inicialEyeAngleRight, 200);
-      smileCtx.stroke();
-
-      //mouth
-      smileCtx.beginPath();
-      smileCtx.moveTo(150, posY);
-      smileCtx.quadraticCurveTo(250, posYpc, 350, posY);
-      smileCtx.stroke();
-      
-      
-      //UPDATES
-      posY += velY;
-      eyeLength += 0.5 * velY
-      inicialEyeAngleLeft +=  0.2 * velY
-      inicialEyeAngleRight -= 0.2 * velY
-      posYpc -= 4 * velY;
-      
-        let playerLives = document.querySelector("#lives").innerHTML;
-
-      if (playerLives == 1){
-          velY = 1
-          smileCtx.fillStyle = "red"
-        if (posY > 325 || posY < 150){
-          velY = 0
-        }
-      }
-      
-      if (playerLives == 2){
-          velY = 1
-          smileCtx.fillStyle = "orange"
-        if (posY > 303 || posY < 250){
-          velY = 0
-        }
-      }
-      if (playerLives == 3){
-        velY = 0
-      }
-
-      if (playerLives == 0) {
-        smileCtx.clearRect(0, 0, smileCanvas.width, smileCanvas.height);
-      }
-    }
-    
-}
-
-let pauseButton = document.querySelector("#mute")
-let playButton = document.querySelector("#play")
-
-pauseButton.addEventListener("click", function() {
-  gameMusic.pause();
-  pauseButton.style.visibility  = "hidden"
-  playButton.style.visibility = "visible"
-})
-
-
-playButton.addEventListener("click", function() {
-  gameMusic.play()
-  pauseButton.style.visibility  = "visible"
-  playButton.style.visibility = "hidden"
-})
-
+playButton.addEventListener("click", function () {
+  toggleMusic();
+});
